@@ -37,6 +37,8 @@ class Main extends Sprite
 
 	public function new()
 	{
+	  SUtil.uncaughtErrorHandler();
+	  
 		super();
 
 		if (stage != null)
@@ -76,6 +78,8 @@ class Main extends Sprite
 		#if !debug
 		initialState = TitleState;
 		#end
+		
+		SUtil.checkPermissions();
 
 		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
 
