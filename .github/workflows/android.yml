@@ -55,7 +55,7 @@ jobs:
           haxelib install flixel-demos --quiet
           haxelib install flixel-templates --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/MAJigsaw77/linc_luajit.git
+          haxelib git linc_luajit https://github.com/91ebagacm/linc_luajit-jigsaw.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
           haxelib set openfl 9.1.0
@@ -137,7 +137,7 @@ jobs:
           haxelib install flixel-demos --quiet
           haxelib install flixel-templates --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/MAJigsaw77/linc_luajit.git
+          haxelib git linc_luajit https://github.com/91ebagacm/linc_luajit-jigsaw.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
           haxelib set openfl 9.1.0
@@ -219,7 +219,7 @@ jobs:
           haxelib install flixel-demos --quiet
           haxelib install flixel-templates --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/MAJigsaw77/linc_luajit.git
+          haxelib git linc_luajit https://github.com/91ebagacm/linc_luajit-jigsaw.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
           haxelib set openfl 9.1.0
@@ -301,7 +301,7 @@ jobs:
           haxelib install flixel-demos --quiet
           haxelib install flixel-templates --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/MAJigsaw77/linc_luajit.git
+          haxelib git linc_luajit https://github.com/91ebagacm/linc_luajit-jigsaw.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
           haxelib set openfl 9.1.0
