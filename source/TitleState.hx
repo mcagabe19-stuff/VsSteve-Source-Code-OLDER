@@ -85,7 +85,7 @@ class TitleState extends MusicBeatState
 
 		// NGio.noLogin(APIStuff.API);
 
-		#if ng
+		#if newgrounds
 		var ng:NGio = new NGio(APIStuff.API, APIStuff.EncKey);
 		trace('NEWGROUNDS LOL');
 		#end
@@ -293,7 +293,7 @@ class TitleState extends MusicBeatState
 
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
-			#if !switch
+			#if newgrounds
 			NGio.unlockMedal(60960);
 
 			// If it's Friday according to da clock
