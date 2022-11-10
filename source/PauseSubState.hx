@@ -1,7 +1,7 @@
 package;
 
 import openfl.Lib;
-#if cpp
+#if !web
 import llua.Lua;
 #end
 import Controls.Control;
@@ -74,7 +74,7 @@ class PauseSubState extends MusicBeatSubstate
 		perSongOffset.scrollFactor.set();
 		perSongOffset.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		
-		#if cpp
+		#if !web
 			add(perSongOffset);
 		#end
 
@@ -115,7 +115,7 @@ class PauseSubState extends MusicBeatSubstate
 			changeSelection(1);
 		}
 		
-		#if cpp
+		#if !web
 			else if (leftP)
 			{
 				oldOffset = PlayState.songOffset;
@@ -189,7 +189,7 @@ class PauseSubState extends MusicBeatSubstate
 						FlxG.save.data.downscroll = false;
 					}
 					PlayState.loadRep = false;
-					#if cpp
+					#if !web
 					if (PlayState.luaModchart != null)
 					{
 						PlayState.luaModchart.die();
