@@ -1,7 +1,7 @@
 // this file is for modchart things, this is to declutter playstate.hx
 
 // Lua
-#if cpp
+#if !web
 import flixel.tweens.FlxEase;
 import openfl.filters.ShaderFilter;
 import flixel.tweens.FlxTween;
