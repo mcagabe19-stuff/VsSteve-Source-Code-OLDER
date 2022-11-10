@@ -268,7 +268,7 @@ class PlayState extends MusicBeatState
 		executeModchart = false; // FORCE disable for non cpp targets
 		#end
 
-		trace('Mod chart working goto fuck yourself);
+		trace('Mod chart working goto fuck yourself');
 
 		#if windows
 		// Making difficulty text for Discord Rich Presence.
