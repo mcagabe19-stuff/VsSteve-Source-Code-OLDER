@@ -260,9 +260,11 @@ class PlayState extends MusicBeatState
 
 		#if desktop
 		executeModchart = FileSystem.exists(Paths.lua(PlayState.SONG.song.toLowerCase()  + "/modchart"));
-		#elseif mobile
+		#end
+		#if mobile
 		executeModchart = openfl.utils.Assets.exists("assets/data/" + PlayState.SONG.song.toLowerCase() + "/modchart.lua");
-		#elseif !cpp
+		#end
+		#if !cpp
 		executeModchart = false; // FORCE disable for non cpp targets
 		#end
 
