@@ -98,7 +98,7 @@
 	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod"/>
 	<haxelib name="discord_rpc" if="windows"/>
-	<haxelib name="linc_luajit" if="windows"/>
+	<haxelib name="linc_luajit" unless="web"/>
 	<haxelib name="actuate" />
 	<!-- <haxelib name="extension-webm" if="desktop" /> -->
 
