@@ -55,7 +55,7 @@ jobs:
           haxelib install flixel-demos --quiet
           haxelib install flixel-templates --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/91ebagacm/linc_luajit-jigsaw.git
+          haxelib git linc_luajit https://github.com/sirox228/linc_luajit.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
           haxelib set openfl 9.1.0
@@ -75,7 +75,7 @@ jobs:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Compile
-        run: haxelib run lime build android -D no-compilation -D macro-times -D analyzer-optimize -armv7 --app-version="4.0.0-${{ github.run_id}}"
+        run: haxelib run lime build android -D no-compilation -D luajit_static -D macro-times -D analyzer-optimize -armv7 --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish To transfer.sh
         run: |
@@ -137,7 +137,7 @@ jobs:
           haxelib install flixel-demos --quiet
           haxelib install flixel-templates --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/91ebagacm/linc_luajit-jigsaw.git
+          haxelib git linc_luajit https://github.com/sirox228/linc_luajit.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
           haxelib set openfl 9.1.0
@@ -157,7 +157,7 @@ jobs:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Compile
-        run: haxelib run lime build android -D no-compilation -D macro-times -D analyzer-optimize -arm64 --app-version="4.0.0-${{ github.run_id}}"
+        run: haxelib run lime build android -D no-compilation -D luajit_static -D macro-times -D analyzer-optimize -arm64 --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish To transfer.sh
         run: |
@@ -219,7 +219,7 @@ jobs:
           haxelib install flixel-demos --quiet
           haxelib install flixel-templates --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/91ebagacm/linc_luajit-jigsaw.git
+          haxelib git linc_luajit https://github.com/sirox228/linc_luajit.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
           haxelib set openfl 9.1.0
@@ -239,7 +239,7 @@ jobs:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Compile
-        run: haxelib run lime build android -D no-compilation -D macro-times -D analyzer-optimize -32 --app-version="4.0.0-${{ github.run_id}}"
+        run: haxelib run lime build android -D no-compilation -D luajit_static -D macro-times -D analyzer-optimize -32 --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish To transfer.sh
         run: |
@@ -301,7 +301,7 @@ jobs:
           haxelib install flixel-demos --quiet
           haxelib install flixel-templates --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/91ebagacm/linc_luajit-jigsaw.git
+          haxelib git linc_luajit https://github.com/sirox228/linc_luajit.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
           haxelib set openfl 9.1.0
@@ -324,7 +324,7 @@ jobs:
         run: haxelib run lime rebuild android -64 -release -nocolor -verbose -nocffi
 
       - name: Compile
-        run: haxelib run lime build android -D no-compilation -D macro-times -D analyzer-optimize -64 --app-version="4.0.0-${{ github.run_id}}"
+        run: haxelib run lime build android -D no-compilation -D luajit_static -D macro-times -D analyzer-optimize -64 --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish To transfer.sh
         run: |
