@@ -41,7 +41,7 @@ class LoadingState extends MusicBeatState
 	{
 		super();
 
-                FlxTransitionableState.skipNextTransIn = false;
+                FlxTransitionableState.skipNextTransIn = true;
 		FlxTransitionableState.skipNextTransOut = true;
 		this.target = target;
 		this.stopMusic = stopMusic;
