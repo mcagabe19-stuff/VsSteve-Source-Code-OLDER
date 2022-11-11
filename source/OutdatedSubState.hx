@@ -41,12 +41,20 @@ class OutdatedSubState extends MusicBeatState
 		kadeLogo.y -= 180;
 		kadeLogo.alpha = 0.8;
 		add(kadeLogo);
-		
+
+		#if mobile
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
+			"DISCLAIMER!"
+			+ "\n\nIf you're a Content Creator, then you should maybe skip Revenge since its Copyrighted!\nSoo, if monetization is something for you, then you should skip Revenge out...\n\nAlso, dialog was temporarily disabled because we had no idea\nof how to add it properly lmaoo\n\nRemember that this is a DEMO, so dont expect much from the mod.\n\nTouch your screen to proceed"
+
+			);
+                #else
+                var txt:FlxText = new FlxText(0, 0, FlxG.width,
 			"DISCLAIMER!"
 			+ "\n\nIf you're a Content Creator, then you should maybe skip Revenge since its Copyrighted!\nSoo, if monetization is something for you, then you should skip Revenge out...\n\nAlso, dialog was temporarily disabled because we had no idea\nof how to add it properly lmaoo\n\nRemember that this is a DEMO, so dont expect much from the mod.\n\nPress Space or ESCAPE or ENTER to proceed"
 
 			);
+                #end
 		
 		txt.setFormat("VCR OSD Mono", 32, FlxColor.fromRGB(200, 200, 200), CENTER);
 		txt.borderColor = FlxColor.BLACK;
@@ -80,11 +88,21 @@ class OutdatedSubState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+                #if mobile
+                var justTouched:Bool = false;
+                for (touch in FlxG.touches.list)
+	        if (touch.justPressed)
+		justTouched = true;
+                if (justTouched)
+	        leftState = true;
+                FlxG.switchState(new MainMenuState());
+                #else
 		if (controls.BACK || controls.ACCEPT)
 		{
 			leftState = true;
 			FlxG.switchState(new MainMenuState());
 		}
+                #end
 		super.update(elapsed);
 	}
 }
