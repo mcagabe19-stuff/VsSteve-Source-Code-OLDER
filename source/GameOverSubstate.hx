@@ -46,18 +46,23 @@ class GameOverSubstate extends MusicBeatSubstate
 		FlxG.camera.target = null;
 
 		bf.playAnim('firstDeath');
+
+                #if android
+		addVirtualPad(NONE, A_B);
+                addPadCamera();
+		#end
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		if (controls.ACCEPT)
+		if (#if android virtualPad.buttonA.justPressed || #end controls.ACCEPT)
 		{
 			endBullshit();
 		}
 
-		if (controls.BACK)
+		if (#if android virtualPad.buttonB.justPressed || #end controls.BACK)
 		{
 			FlxG.sound.music.stop();
 
