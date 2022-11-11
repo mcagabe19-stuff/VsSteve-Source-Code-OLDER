@@ -3407,9 +3407,7 @@ class PlayState extends MusicBeatState
     #end
 	  
 		if (!loadRep)
-		#if desktop
 			rep.SaveReplay(saveNotes);
-		#end
 		else
 		{
 			FlxG.save.data.botplay = false;
