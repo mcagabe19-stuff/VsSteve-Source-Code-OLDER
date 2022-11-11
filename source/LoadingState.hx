@@ -31,7 +31,7 @@ class LoadingState extends MusicBeatState
 	var stopMusic = false;
 	var callbacks:MultiCallback;
 
-	var bg:FlxSprite
+	var bg:FlxSprite;
 	var logoBl:FlxSprite;
         var loadTxtBg:FlxSprite;
 	var loadTxtProgress:FlxSprite;
