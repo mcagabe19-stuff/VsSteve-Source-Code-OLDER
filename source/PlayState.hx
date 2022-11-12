@@ -1363,9 +1363,6 @@ class PlayState extends MusicBeatState
 		if (!loadRep)
 			rep = new Replay("na");
 			
-		#if mobile
-		addVirtualPad(NONE, NONE);
-		#end
 
 		super.create();
 	}
@@ -1466,6 +1463,10 @@ class PlayState extends MusicBeatState
 	function startCountdown():Void
 	{
 		inCutscene = false;
+
+                #if android
+                mobileControls.visible = true;
+                #end
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
@@ -3431,9 +3432,10 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
-	  #if mobile
-          removeMobileControls();
-          #end
+                #if android
+                mobileControls.visible = false;
+                removeMobileControls()
+                #end
 
 	        #if desktop
 		if (!loadRep)
