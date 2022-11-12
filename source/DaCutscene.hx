@@ -10,7 +10,7 @@ class DaCutscene extends FlxBasic {
 		super();
 
 	        #if android
-                VideoView.playVideo('file:///sdcard/.stevolderidk/assets/videos/armorsteve.webm');
+                VideoView.playVideo(SUtil.getPath() + 'assets/videos/armorsteve.webm');
                 VideoView.onCompletion = function(){
 		        if (finishCallback != null){
 			        finishCallback();
