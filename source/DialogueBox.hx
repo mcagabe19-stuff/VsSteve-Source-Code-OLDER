@@ -316,7 +316,7 @@ class DialogueBox extends FlxSpriteGroup
 					stevamor.visible = true;
 					stevamor.animation.play('enter');
 				}
-				case 'stevnor':
+				case 'stevamor':
 					bf.visible = false;
 					alex.visible = false;
 					if (!stevnormal.visible)
