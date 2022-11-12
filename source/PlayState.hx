@@ -1196,7 +1196,7 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.save.data.songPosition) // I dont wanna talk about this code :(
 			{
-				songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('healthBarBG'));
+				songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('healthBarBGG'));
 				if (FlxG.save.data.downscroll)
 					songPosBG.y = FlxG.height * 0.9 + 45; 
 				songPosBG.screenCenter(X);
@@ -1762,7 +1762,7 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('introGo' + altSuffix), 0.6);
 
 
-					if (curStage.startsWith('dves'))
+					if (curStage.startsWith('devs'))
 						go.setGraphicSize(Std.int(go.width * daPixelZoom));
 
 					go.updateHitbox();
@@ -1834,7 +1834,7 @@ class PlayState extends MusicBeatState
 			remove(songPosBar);
 			remove(songName);
 
-			songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('healthBarBG'));
+			songPosBG = new FlxSprite(0, 10).loadGraphic(Paths.image('healthBarBGG'));
 			if (FlxG.save.data.downscroll)
 				songPosBG.y = FlxG.height * 0.9 + 45; 
 			songPosBG.screenCenter(X);
@@ -2572,8 +2572,8 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-	  floatvalue += 0.0005;
-		runvalue += 0.0002;
+	  floatvalue += 0.0015;
+		runvalue += 0.009;
 		#if !debug
 		perfectMode = false;
 		#end
