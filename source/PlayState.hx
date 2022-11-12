@@ -2831,7 +2831,7 @@ class PlayState extends MusicBeatState
 				}
 				#end
 				camFollow.setPosition(dad.getMidpoint().x + 150 + offsetX, dad.getMidpoint().y - 100 + offsetY);
-				#if windows
+				#if !web
 				if (luaModchart != null)
 					luaModchart.executeState('playerTwoTurn', []);
 				#end
