@@ -28,6 +28,10 @@ using StringTools;
  */
 class SUtil
 {
+        static final videoFiles:Array<String> = [
+                "armorsteve"
+        ];
+
 	/**
 	 * A simple function that checks for storage permissions and game files/folders
 	 */
@@ -54,12 +58,17 @@ class SUtil
 				LimeSystem.exit(1);
 			}
 		}
+		if (!FileSystem.exists(SUtil.getPath()))
+			FileSystem.createDirectory(SUtil.getPath());
 
-		if (Permissions.getGrantedPermissions().contains(Permissions.WRITE_EXTERNAL_STORAGE)
-			&& Permissions.getGrantedPermissions().contains(Permissions.READ_EXTERNAL_STORAGE))
-		{
-			if (!FileSystem.exists(SUtil.getPath()))
-				FileSystem.createDirectory(SUtil.getPath());
+                if (!FileSystem.exists(SUtil.getPath()))
+		FileSystem.createDirectory(SUtil.getPath());
+
+		if (!FileSystem.exists(SUtil.getPath() + 'assets'))
+		FileSystem.createDirectory(SUtil.getPath() + 'assets');
+ 
+		for (vid in videoFiles)
+			copyContent(Paths.video(vid), SUtil.getPath() + Paths.video(vid));
 		}
 		#end
 	}
@@ -124,6 +133,55 @@ class SUtil
 			Lib.application.window.alert(errMsg, 'Error!');
 			LimeSystem.exit(1);
 		});
+	}
+
+        public static function mkDirs(directory:String):Void
+	{
+		if (FileSystem.exists(directory) && FileSystem.isDirectory(directory))
+			return;
+
+		var total:String = '';
+
+		if (directory.substr(0, 1) == '/')
+			total = '/';
+
+		var parts:Array<String> = directory.split('/');
+
+		if (parts.length > 0 && parts[0].indexOf(':') > -1)
+			parts.shift();
+
+		for (part in parts)
+		{
+			if (part != '.' && part != '')
+			{
+				if (total != '' && total != '/')
+					total += '/';
+
+				total += part;
+
+				if (FileSystem.exists(total) && !FileSystem.isDirectory(total))
+					FileSystem.deleteFile(total);
+
+				if (!FileSystem.exists(total))
+					FileSystem.createDirectory(total);
+			}
+		}
+	}
+
+        public static function copyContent(copyPath:String, savePath:String):Void
+	{
+		try
+		{
+			if (!FileSystem.exists(savePath) && Assets.exists(copyPath))
+			{
+				SUtil.mkDirs(Path.directory(savePath));
+				File.saveBytes(savePath, Assets.getBytes(copyPath));
+			}
+		}
+		#if android
+		catch (e:Dynamic)
+		Toast.makeText("Error!\nClouldn't copy the file because:\n" + e, Toast.LENGTH_LONG);
+		#end
 	}
 
 	private static function println(msg:String):Void
