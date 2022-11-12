@@ -2573,7 +2573,7 @@ class PlayState extends MusicBeatState
 	override public function update(elapsed:Float)
 	{
 	  floatvalue += 0.05;
-		runvalue += 0.09;
+		runvalue += 0.1;
 		#if !debug
 		perfectMode = false;
 		#end
@@ -2704,7 +2704,7 @@ class PlayState extends MusicBeatState
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
 		
-		if (curStage.startsWith('fasttravel') || curStage.startsWith('school'))
+		if (curStage.startsWith('fasttravel') /* || curStage.startsWith('school') */)
 		{
 			dad.y += Math.sin(floatvalue);
 			dad.y += Math.cos(floatvalue);
@@ -2717,15 +2717,15 @@ class PlayState extends MusicBeatState
 			gfHorse.y += Math.sin(floatvalue);
 			gfHorse.y += Math.cos(floatvalue);
 			dad.x += Math.sin(runvalue);
-			dad.x += Math.cos(runvalue);
+			//dad.x += Math.cos(runvalue);
 			boyfriend.x += Math.sin(runvalue);
-			boyfriend.x += Math.cos(runvalue);
+			//boyfriend.x += Math.cos(runvalue);
 			alexHorse.x += Math.sin(runvalue);
-			alexHorse.x += Math.cos(runvalue);
+			//alexHorse.x += Math.cos(runvalue);
 			steveHorse.x += Math.sin(runvalue);
-			steveHorse.x += Math.cos(runvalue);
+			//steveHorse.x += Math.cos(runvalue);
 			gfHorse.x += Math.sin(runvalue);
-			gfHorse.x += Math.cos(runvalue);
+			//gfHorse.x += Math.cos(runvalue);
 		}
 
 		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
