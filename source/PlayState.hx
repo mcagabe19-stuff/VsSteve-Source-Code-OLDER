@@ -3547,9 +3547,6 @@ class PlayState extends MusicBeatState
 
           switch (SONG.song.toLowerCase())
 					{
-						case 'suit up':
-							LoadingState.loadAndSwitchState(new DaCutscene(), new PlayState()));
-						
 						default:
 							LoadingState.loadAndSwitchState(new PlayState());
 					}
