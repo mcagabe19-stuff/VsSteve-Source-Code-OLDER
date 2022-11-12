@@ -1311,10 +1311,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 		
-		#if mobile
-		addMobileControls();
-		#end
-		
 		if (FlxG.save.data.songPosition)
 		{
 			songPosBG.cameras = [camHUD];
@@ -1323,6 +1319,10 @@ class PlayState extends MusicBeatState
 		kadeEngineWatermark.cameras = [camHUD];
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
+
+                #if mobile
+                addMobileControls();
+                #end
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -3404,9 +3404,10 @@ class PlayState extends MusicBeatState
 	function endSong():Void
 	{
 	  #if mobile
-    removeMobileControls();
-    #end
-	  
+          removeMobileControls();
+          #end
+
+	        #if desktop
 		if (!loadRep)
 			rep.SaveReplay(saveNotes);
 		else
@@ -3415,6 +3416,7 @@ class PlayState extends MusicBeatState
 			FlxG.save.data.scrollSpeed = 1;
 			FlxG.save.data.downscroll = false;
 		}
+                #end
 		
 		if (FlxG.save.data.fpsCap > 290)
 			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
