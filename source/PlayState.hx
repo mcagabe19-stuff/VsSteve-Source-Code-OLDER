@@ -3434,7 +3434,7 @@ class PlayState extends MusicBeatState
 	{
                 #if android
                 mobileControls.visible = false;
-                removeMobileControls()
+                removeMobileControls();
                 #end
 
 	        #if desktop
