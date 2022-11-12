@@ -1336,8 +1336,8 @@ class PlayState extends MusicBeatState
 				case 'craft away':
 					schoolIntro(doof);
 				case 'suit up':
-					schoolIntro(doof);
-        /*
+					suitdowncutscene();
+				/*
       	case 'overseen':
 					schoolIntro(doof);
       	case 'iron picks':
@@ -1450,7 +1450,14 @@ class PlayState extends MusicBeatState
 			}
 		});
 	}
-
+	
+	function suitdowncutscene():Void {
+	var video:DaCutscene = new DaCutscene();
+	if (isStoryMode) {
+	video.finishCallback = schoolIntro(doof); }
+	if (!isStoryMode) {
+	video.finishCallback = startCountdown; }
+	
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;
 
