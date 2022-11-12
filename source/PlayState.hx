@@ -236,6 +236,10 @@ class PlayState extends MusicBeatState
 	
 	public function addObject(object:FlxBasic) { add(object); }
 	public function removeObject(object:FlxBasic) { remove(object); }
+	
+	//Fast Travel shit
+	private var floatvalue:Float = 0;
+	private var runvalue:Float = 0;
 
 
 	override public function create()
@@ -709,16 +713,11 @@ class PlayState extends MusicBeatState
 					curStage = 'fasttravel';
 
 					defaultCamZoom = 0.7;
-					camMovement = 0.2;
+					camMovement = 0.6;
 
 					var repositionShit = -200;
 
-					var fasttravelbg:FlxSprite = new FlxSprite();
-					fasttravelbg.frames = Paths.getSparrowAtlas('fasttravel/fastTravelBg');
-					fasttravelbg.animation.addByPrefix('spin', 'Panorama', 12, true);
-					fasttravelbg.animation.play('spin');
-					fasttravelbg.y -= 1200;
-					fasttravelbg.x -= 650;
+					var fasttravelbg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('fasttravel/fasttravelBg'));
 					fasttravelbg.scale.set(3.1, 3.1);
 					fasttravelbg.updateHitbox();
 					fasttravelbg.antialiasing = false;
@@ -1103,8 +1102,8 @@ class PlayState extends MusicBeatState
 			case 'fasttravel':
 				boyfriend.x += 210;
 				boyfriend.y += 0;
-				gf.x += 240;
-				gf.y += 170;
+				gf.x += 1000;
+				gf.y += 1000;
 			case 'templeentrance':
 				boyfriend.x += 220;
 				boyfriend.y += 100;
@@ -2574,6 +2573,8 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+	  floatvalue += 0.01;
+		runvalue += 0.005;
 		#if !debug
 		perfectMode = false;
 		#end
@@ -2703,6 +2704,20 @@ class PlayState extends MusicBeatState
 
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
 		// FlxG.watch.addQuick('VOLRight', vocals.amplitudeRight);
+		
+		if (curStage.startsWith('fasttravel'))
+		{
+			dad.y += Math.sin(floatvalue);
+			dad.y += Math.cos(floatvalue);
+			boyfriend.y += Math.sin(floatvalue);
+			boyfriend.y += Math.cos(floatvalue);
+			//alexhorse.y += Math.sin(floatvalue);
+			//alexhorse.y += Math.cos(floatvalue);
+			//stevehorse.y += Math.sin(floatvalue);
+			//stevehorse.y += Math.cos(floatvalue);
+			//gfhorse.y += Math.sin(floatvalue);
+			//gfhorse.y += Math.cos(floatvalue);
+		}
 
 		iconP1.setGraphicSize(Std.int(FlxMath.lerp(150, iconP1.width, 0.50)));
 		iconP2.setGraphicSize(Std.int(FlxMath.lerp(150, iconP2.width, 0.50)));
