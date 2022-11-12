@@ -79,9 +79,9 @@ class SUtil
 	public static function getPath():String
         {
 		#if android
-		var daPath = Context.getExternalFilesDir(null) + '/';
+		var daPath:String = Environment.getExternalStorageDirectory() + '/' + '.' + Lib.application.meta.get('file') + '/';
 
-		SUtil.mkDirs(Path.directory(daPath));
+		/*SUtil.mkDirs(Path.directory(daPath));*/
 
 		return daPath;
 		#else
