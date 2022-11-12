@@ -70,8 +70,6 @@ class StoryMenuState extends MusicBeatState
 		DiscordClient.changePresence("In the Story Mode Menu", null);
 		#end
 
-
-
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuBGSM")); // TIAGO THIS HERE INCASE yOUR FORGET LOL -- written by tiago
 
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
@@ -89,7 +87,6 @@ class StoryMenuState extends MusicBeatState
 		b.screenCenter();
 		b.antialiasing = true;
 		add(b);
-
 
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
@@ -133,8 +130,6 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 50");
 
-
-		
 		trace("Line 70");
 
 		for (i in 0...weekData.length)
@@ -239,6 +234,10 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 165");
 
+                #if android
+                addVirtualPad(LEFT_FULL, A_B);
+                #end
+
 		super.create();
 	}
 
@@ -265,12 +264,12 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!selectedWeek)
 			{
-				if (controls.RIGHT_P)
+				if (#if android virtualPad.buttonRight.justPressed || #end controls.RIGHT_P)
 				{
 					changeWeek(-1);
 				}
 
-				if (controls.LEFT_P)
+				if (#if android virtualPad.buttonLeft.justPressed || #end controls.LEFT_P)
 				{
 					changeWeek(1);
 				}
@@ -298,13 +297,13 @@ class StoryMenuState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 					}
 					
-				if (controls.UP_P)
+				if (#if android virtualPad.buttonUp.justPressed || #end controls.UP_P)
 					changeDifficulty(1);
-				if (controls.DOWN_P)
+				if (#if android virtualPad.buttonDown.justPressed || #end controls.DOWN_P)
 					changeDifficulty(-1);
 			}
 
-			if (controls.ACCEPT)
+			if (#if android virtualPad.buttonA.justPressed || #end controls.ACCEPT)
 			{
 				selectWeek();
 			}
@@ -320,7 +319,7 @@ class StoryMenuState extends MusicBeatState
 		diffs.animation.play('hardcoreee');
 		}
 
-		if (controls.BACK && !movedBack && !selectedWeek)
+		if (#if android virtualPad.buttonB.justPressed || #end controls.BACK && !movedBack && !selectedWeek)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
