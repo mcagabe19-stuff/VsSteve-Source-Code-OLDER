@@ -344,7 +344,7 @@ class PlayState extends MusicBeatState
 		{
 			case 'lmao':
 				dialogue = ["Hey you're pretty cute.", 'Use the arrow keys to keep up \nwith me singing.'];
-			case 'uog':
+			case 'uoh':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('uoh/uohDialogue'));
 			case 'craft away':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('craft away/craft awayDialogue'));
@@ -3884,12 +3884,12 @@ class PlayState extends MusicBeatState
 				if (combo >= 10 || combo == 0)
 					add(numScore);
 	
-				FlxTween.tween(numScore, {alpha: 0}, 0.2, {
+				FlxTween.tween(numScore, {alpha: 0}, 0.4, {
 					onComplete: function(tween:FlxTween)
 					{
 						numScore.destroy();
 					},
-					startDelay: Conductor.crochet * 0.002
+					startDelay: Conductor.crochet * 0.0025
 				});
 	
 				daLoop++;
@@ -4563,6 +4563,8 @@ class PlayState extends MusicBeatState
 		if (!dad.animation.curAnim.name.startsWith("sing"))
 		{
 			dad.dance();
+			if (hasDuoDad)
+				duoDad.dance();
 		}
 
 		if (curBeat % 8 == 7 && curSong == 'Bopeebo')
