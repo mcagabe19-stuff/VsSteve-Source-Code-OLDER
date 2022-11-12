@@ -49,7 +49,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
                 #if android
 		addVirtualPad(NONE, A_B);
-                addVirtualPadCamera();
+                addPadCamera();
 		#end
 	}
 
