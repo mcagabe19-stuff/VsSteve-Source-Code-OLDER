@@ -76,8 +76,18 @@ class SUtil
 	/**
 	 * This returns the external storage path that the game will use
 	 */
-	public static function getPath():String #if android return Environment.getExternalStorageDirectory() + '/' + '.' + Lib.application.meta.get('file') +
-		'/'; #else return ''; #end
+	public static function getPath():String
+        {
+		#if android
+		var daPath = Context.getExternalFilesDir(null) + '/';
+
+		SUtil.mkDirs(Path.directory(daPath));
+
+		return daPath;
+		#else
+		return '';
+		#end
+	}
 
 	/**
 	 * Uncaught error handler, original made by: sqirra-rng
