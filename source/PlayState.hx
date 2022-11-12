@@ -3545,19 +3545,14 @@ class PlayState extends MusicBeatState
 					PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
 					FlxG.sound.music.stop();
 
-					LoadingState.loadAndSwitchState(new PlayState());
-					//disabled this cuz it just doesnt work -- never mind
-
-					//i need help
-					//help
-					/*switch (SONG.song.toLowerCase())
+          switch (SONG.song.toLowerCase())
 					{
 						case 'suit up':
-							LoadingState.loadAndSwitchState(new VideoState("assets/videos/armorsteve.webm", new PlayState()));
+							LoadingState.loadAndSwitchState(new DaCutscene(), new PlayState()));
 						
 						default:
 							LoadingState.loadAndSwitchState(new PlayState());
-					}*/
+					}
 				}
 			}
 			else
