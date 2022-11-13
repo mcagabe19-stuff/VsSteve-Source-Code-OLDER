@@ -19,7 +19,7 @@ import flixel.util.FlxColor;
 
 class PauseSubState extends MusicBeatSubstate
 {
-        public var nosuitdowncutscene:Bool = false;
+        public static var nosuitdowncutscene:Bool = false;
 
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
