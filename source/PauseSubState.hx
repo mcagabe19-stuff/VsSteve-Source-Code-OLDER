@@ -19,6 +19,8 @@ import flixel.util.FlxColor;
 
 class PauseSubState extends MusicBeatSubstate
 {
+        public var nosuitdowncutscene:Bool = false;
+
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = ['Resume', 'Restart Song', 'Exit to menu'];
@@ -120,7 +122,7 @@ class PauseSubState extends MusicBeatSubstate
 			changeSelection(1);
 		}
 		
-		#if !web
+		#if desktop
 			else if (leftP)
 			{
 				oldOffset = PlayState.songOffset;
@@ -185,8 +187,10 @@ class PauseSubState extends MusicBeatSubstate
 				case "Resume":
 					close();
 				case "Restart Song":
+                                        nosuitdowncutscene = true;
 					FlxG.resetState();
 				case "Exit to menu":
+                                        nosuitdowncutscene = false;
 					if(PlayState.loadRep)
 					{
 						FlxG.save.data.botplay = false;
