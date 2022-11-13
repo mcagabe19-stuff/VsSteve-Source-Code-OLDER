@@ -50,7 +50,7 @@ import lime.utils.Assets;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
-import extension.videoview.VideoView;
+import videoview.VideoView;
 
 #if windows
 import Discord.DiscordClient;
