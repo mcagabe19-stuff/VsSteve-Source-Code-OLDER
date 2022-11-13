@@ -39,7 +39,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib install lime 7.9.0 --quiet
-          haxelib install hxcpp > /dev/null
+          haxelib git hxcpp https://github.com/mcagabe19/hxcpp-fastspeed > /dev/null
           haxelib install lime-samples --quiet
           haxelib install openfl 9.1.0 --quiet
           haxelib install openfl-samples --quiet
@@ -122,7 +122,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib install lime 7.9.0 --quiet
-          haxelib install hxcpp > /dev/null
+          haxelib git hxcpp https://github.com/mcagabe19/hxcpp-fastspeed > /dev/null
           haxelib install lime-samples --quiet
           haxelib install openfl 9.1.0 --quiet
           haxelib install openfl-samples --quiet
@@ -205,7 +205,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib install lime 7.9.0 --quiet
-          haxelib install hxcpp > /dev/null
+          haxelib git hxcpp https://github.com/mcagabe19/hxcpp-fastspeed > /dev/null
           haxelib install lime-samples --quiet
           haxelib install openfl 9.1.0 --quiet
           haxelib install openfl-samples --quiet
@@ -288,7 +288,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib git lime https://github.com/mcagabe19/lime.git
-          haxelib install hxcpp > /dev/null
+          haxelib git hxcpp https://github.com/mcagabe19/hxcpp-fastspeed > /dev/null
           haxelib install lime-samples --quiet
           haxelib install openfl 9.1.0 --quiet
           haxelib install openfl-samples --quiet
