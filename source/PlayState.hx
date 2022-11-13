@@ -50,6 +50,7 @@ import lime.utils.Assets;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
+import extension.videoview.VideoView;
 
 #if windows
 import Discord.DiscordClient;
@@ -1328,7 +1329,7 @@ class PlayState extends MusicBeatState
 		startingSong = true;
 		
 		if (SONG.song == 'suit up') {
-		suitdowncutscene();
+		VideoView.playVideo(SUtil.getStorageDirectory() + 'assets/videos/armorsteve.webm');
 	  }
 		
 		if (isStoryMode)
@@ -1452,14 +1453,6 @@ class PlayState extends MusicBeatState
 				remove(black);
 			}
 		});
-	}
-	
-	function suitdowncutscene():Void {
-	var video:DaCutscene = new DaCutscene();
-	/*if (isStoryMode) {
-	video.finishCallback = schoolIntro(doof); }
-	if (!isStoryMode) {*/
-	video.finishCallback = startCountdown; //}
 	}
 	
 	var startTimer:FlxTimer;
