@@ -1327,17 +1327,20 @@ class PlayState extends MusicBeatState
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 		
+		if (SONG.song == 'suit up') {
+		suitdowncutscene();
+	  }
+		
 		if (isStoryMode)
 		{
 			switch (curSong.toLowerCase())
 			{
-				case 'uoh':
+				/*case 'uoh':
 					schoolIntro(doof);
 				case 'craft away':
 					schoolIntro(doof);
 				case 'suit up':
 					suitdowncutscene();
-				/*
       	case 'overseen':
 					schoolIntro(doof);
       	case 'iron picks':
@@ -1453,10 +1456,11 @@ class PlayState extends MusicBeatState
 	
 	function suitdowncutscene():Void {
 	var video:DaCutscene = new DaCutscene();
-	if (isStoryMode) {
+	/*if (isStoryMode) {
 	video.finishCallback = schoolIntro(doof); }
-	if (!isStoryMode) {
-	video.finishCallback = startCountdown; }}
+	if (!isStoryMode) {*/
+	video.finishCallback = startCountdown; //}
+	}
 	
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;
