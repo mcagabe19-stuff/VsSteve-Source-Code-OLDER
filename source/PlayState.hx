@@ -1328,8 +1328,12 @@ class PlayState extends MusicBeatState
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 		
-		if (SONG.song == 'suit up') {
+		if (SONG.song == 'suit up' && PauseSubState.nosuitdowncutscene == false) {
+		#if mobile
 		VideoView.playVideo(SUtil.getStorageDirectory() + 'assets/videos/armorsteve.webm');
+		#else
+		openSubState(new VideoState("assets/videos/armorsteve.webm"));
+		#end
 	  }
 		
 		if (isStoryMode)
