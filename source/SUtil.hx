@@ -76,7 +76,7 @@ class SUtil
 		        FileSystem.createDirectory(SUtil.getStorageDirectory() + 'assets');
 
 		        for (vid in videoFiles)
-			copyContent(Paths.video(vid), SUtil.getStorageDirectory() + 'cutscenes');
+			copyContent(Paths.video(vid), SUtil.getStorageDirectory() + 'cutscenes' + '/' + vid + '.webm');
 		}
 		#end
 	}
