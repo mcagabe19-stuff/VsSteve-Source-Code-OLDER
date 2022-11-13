@@ -16,6 +16,9 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public function new(x:Float, y:Float)
 	{
+                Paths.clearUnusedMemory();
+                Paths.clearStoredMemory();
+
                 PauseSubState.nosuitdowncutscene = true;
 
 		var daStage = PlayState.curStage;
