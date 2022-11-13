@@ -1456,7 +1456,7 @@ class PlayState extends MusicBeatState
 	if (isStoryMode) {
 	video.finishCallback = schoolIntro(doof); }
 	if (!isStoryMode) {
-	video.finishCallback = startCountdown; }
+	video.finishCallback = startCountdown; }}
 	
 	var startTimer:FlxTimer;
 	var perfectMode:Bool = false;
