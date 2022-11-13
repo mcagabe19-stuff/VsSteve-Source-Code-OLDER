@@ -2,25 +2,29 @@ package;
 
 #if android
 import android.Permissions;
+import android.content.Context;
 import android.os.Build;
-import android.os.Environment;
 import android.widget.Toast;
 #end
-import flash.system.System;
-import flixel.FlxG;
-import haxe.CallStack.StackItem;
 import haxe.CallStack;
 import haxe.io.Path;
+import lime.system.System as LimeSystem;
 import openfl.Lib;
 import openfl.events.UncaughtErrorEvent;
 import openfl.utils.Assets;
-import lime.system.System as LimeSystem;
+
+using StringTools;
+
 #if (sys && !ios)
 import sys.FileSystem;
 import sys.io.File;
 #end
 
-using StringTools;
+enum StorageType
+{
+	ANDROID_DATA;
+	ROOT;
+}
 
 /**
  * ...
@@ -28,14 +32,15 @@ using StringTools;
  */
 class SUtil
 {
+        //Suit Up Video Here xd - mcagabe19
         static final videoFiles:Array<String> = [
                 "armorsteve"
         ];
 
 	/**
-	 * A simple function that checks for storage permissions and game files/folders
+	 * A simple function that checks for storage permissions and game files/folders.
 	 */
-	public static function check()
+	public static function check():Void
 	{
 		#if android
 		if (!Permissions.getGrantedPermissions().contains(Permissions.WRITE_EXTERNAL_STORAGE)
@@ -58,30 +63,39 @@ class SUtil
 				LimeSystem.exit(1);
 			}
 		}
-		if (!FileSystem.exists(SUtil.getPath()))
+
+		if (Permissions.getGrantedPermissions().contains(Permissions.WRITE_EXTERNAL_STORAGE)
+			&& Permissions.getGrantedPermissions().contains(Permissions.READ_EXTERNAL_STORAGE))
+		{
+			if (!FileSystem.exists(SUtil.getPath()))
 			FileSystem.createDirectory(SUtil.getPath());
 
-                if (!FileSystem.exists(SUtil.getPath()))
-		FileSystem.createDirectory(SUtil.getPath());
+                        if (!FileSystem.exists(SUtil.getPath() + 'assets'))
+		        FileSystem.createDirectory(SUtil.getPath() + 'assets');
 
-		if (!FileSystem.exists(SUtil.getPath() + 'assets'))
-		FileSystem.createDirectory(SUtil.getPath() + 'assets');
- 
-		for (vid in videoFiles)
-			copyContent(Paths.video(vid), SUtil.getPath() + Paths.video(vid));
+		        for (vid in videoFiles)
+			copyContent(Paths.video(vid), SUtil.getStorageDirectory() + Paths.video(vid));
 		}
 		#end
 	}
 
 	/**
-	 * This returns the external storage path that the game will use
+	 * This returns the external storage path that the game will use by the type.
 	 */
-	public static function getPath():String
-        {
+	public static function getStorageDirectory(type:StorageType = ANDROID_DATA):String
+	{
 		#if android
-		var daPath:String = Environment.getExternalStorageDirectory() + '/' + '.' + Lib.application.meta.get('file') + '/';
+		var daPath:String = '';
 
-		/*SUtil.mkDirs(Path.directory(daPath));*/
+		switch (type)
+		{
+			case ANDROID_DATA:
+				daPath = Context.getExternalFilesDir(null) + '/';
+			case ROOT:
+				daPath = Context.getFilesDir() + '/';
+		}
+
+		SUtil.mkDirs(Path.directory(daPath));
 
 		return daPath;
 		#else
@@ -121,10 +135,10 @@ class SUtil
 			#if (sys && !ios)
 			try
 			{
-				if (!FileSystem.exists(SUtil.getPath() + 'logs'))
-					FileSystem.createDirectory(SUtil.getPath() + 'logs');
+				if (!FileSystem.exists(SUtil.getStorageDirectory() + 'logs'))
+					FileSystem.createDirectory(SUtil.getStorageDirectory() + 'logs');
 
-				File.saveContent(SUtil.getPath()
+				File.saveContent(SUtil.getStorageDirectory()
 					+ 'logs/'
 					+ Lib.application.meta.get('file')
 					+ '-'
@@ -145,7 +159,10 @@ class SUtil
 		});
 	}
 
-        public static function mkDirs(directory:String):Void
+	/**
+	 * This is mostly a fork of https://github.com/openfl/hxp/blob/master/src/hxp/System.hx#L595
+	 */
+	public static function mkDirs(directory:String):Void
 	{
 		if (FileSystem.exists(directory) && FileSystem.isDirectory(directory))
 			return;
@@ -178,7 +195,27 @@ class SUtil
 		}
 	}
 
-        public static function copyContent(copyPath:String, savePath:String):Void
+	#if (sys && !ios)
+	public static function saveContent(fileName:String = 'file', fileExtension:String = '.json',
+			fileData:String = 'you forgot to add something in your code lol'):Void
+	{
+		try
+		{
+			if (!FileSystem.exists(SUtil.getStorageDirectory() + 'saves'))
+				FileSystem.createDirectory(SUtil.getStorageDirectory() + 'saves');
+
+			File.saveContent(SUtil.getStorageDirectory() + 'saves/' + fileName + fileExtension, fileData);
+			#if android
+			Toast.makeText("File Saved Successfully!", Toast.LENGTH_LONG);
+			#end
+		}
+		#if android
+		catch (e:Dynamic)
+		Toast.makeText("Error!\nClouldn't save the file because:\n" + e, Toast.LENGTH_LONG);
+		#end
+	}
+
+	public static function copyContent(copyPath:String, savePath:String):Void
 	{
 		try
 		{
@@ -193,6 +230,7 @@ class SUtil
 		Toast.makeText("Error!\nClouldn't copy the file because:\n" + e, Toast.LENGTH_LONG);
 		#end
 	}
+	#end
 
 	private static function println(msg:String):Void
 	{
