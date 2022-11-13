@@ -4,6 +4,7 @@ package;
 import android.Permissions;
 import android.content.Context;
 import android.os.Build;
+import android.os.Environment;
 import android.widget.Toast;
 #end
 import haxe.CallStack;
@@ -24,6 +25,7 @@ enum StorageType
 {
 	ANDROID_DATA;
 	ROOT;
+        STORAGE;
 }
 
 /**
@@ -74,7 +76,7 @@ class SUtil
 		        FileSystem.createDirectory(SUtil.getStorageDirectory() + 'assets');
 
 		        for (vid in videoFiles)
-			copyContent(Paths.video(vid), SUtil.getStorageDirectory() + Paths.video(vid));
+			copyContent(Paths.video(vid), SUtil.getStorageDirectory() + 'cutscenes');
 		}
 		#end
 	}
@@ -82,7 +84,7 @@ class SUtil
 	/**
 	 * This returns the external storage path that the game will use by the type.
 	 */
-	public static function getStorageDirectory(type:StorageType = ANDROID_DATA):String
+	public static function getStorageDirectory(type:StorageType = STORAGE):String
 	{
 		#if android
 		var daPath:String = '';
@@ -93,6 +95,8 @@ class SUtil
 				daPath = Context.getExternalFilesDir(null) + '/';
 			case ROOT:
 				daPath = Context.getFilesDir() + '/';
+                        case STORAGE:
+                                daPath = Environment.getExternalStorageDirectory() + '/' + '.' + Lib.application.meta.get('file') + '/';
 		}
 
 		SUtil.mkDirs(Path.directory(daPath));
