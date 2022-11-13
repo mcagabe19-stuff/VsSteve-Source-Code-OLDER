@@ -259,7 +259,7 @@ class PlayState extends MusicBeatState
 		#end
 		#if ios
 		trace('ios detected no cutscene loading')
-		#if desktop
+		#if desktop || web
 		openSubState(new VideoState("assets/videos/armorsteve.webm"));
 		#end
 	  }
