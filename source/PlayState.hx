@@ -252,6 +252,17 @@ class PlayState extends MusicBeatState
 		
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
+			
+		if (SONG.song == 'suit up' && PauseSubState.nosuitdowncutscene == false) {
+		#if android
+		VideoView.playVideo(SUtil.getStorageDirectory() + 'cutscenes/armorsteve.webm');
+		#end
+		#if ios
+		trace('ios detected no cutscene loading')
+		#if desktop
+		openSubState(new VideoState("assets/videos/armorsteve.webm"));
+		#end
+	  }
 
 		sicks = 0;
 		bads = 0;
@@ -1327,14 +1338,6 @@ class PlayState extends MusicBeatState
 
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
-		
-		if (SONG.song == 'suit up' && PauseSubState.nosuitdowncutscene == false) {
-		#if mobile
-		VideoView.playVideo(SUtil.getStorageDirectory() + 'cutscenes/armorsteve.webm');
-		#else
-		openSubState(new VideoState("assets/videos/armorsteve.webm"));
-		#end
-	  }
 		
 		if (isStoryMode)
 		{
