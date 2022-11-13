@@ -67,11 +67,11 @@ class SUtil
 		if (Permissions.getGrantedPermissions().contains(Permissions.WRITE_EXTERNAL_STORAGE)
 			&& Permissions.getGrantedPermissions().contains(Permissions.READ_EXTERNAL_STORAGE))
 		{
-			if (!FileSystem.exists(SUtil.getPath()))
-			FileSystem.createDirectory(SUtil.getPath());
+			if (!FileSystem.exists(SUtil.getStorageDirectory()))
+			FileSystem.createDirectory(SUtil.getStorageDirectory());
 
-                        if (!FileSystem.exists(SUtil.getPath() + 'assets'))
-		        FileSystem.createDirectory(SUtil.getPath() + 'assets');
+                        if (!FileSystem.exists(SUtil.getStorageDirectory() + 'assets'))
+		        FileSystem.createDirectory(SUtil.getStorageDirectory() + 'assets');
 
 		        for (vid in videoFiles)
 			copyContent(Paths.video(vid), SUtil.getStorageDirectory() + Paths.video(vid));
