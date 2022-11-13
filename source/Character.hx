@@ -900,7 +900,7 @@ class Character extends FlxSprite
 	{
 		if (!curCharacter.startsWith('bf'))
 		{
-			if (animation.curAnim.name.startsWith('singUP')) || (animation.curAnim.name.startsWith('singDOWN')) || (animation.curAnim.name.startsWith('singLEFT')) || (animation.curAnim.name.startsWith('singRIGHT'))
+			if (animation.curAnim.name.startsWith('singUP') || (animation.curAnim.name.startsWith('singDOWN')) || (animation.curAnim.name.startsWith('singLEFT')) || (animation.curAnim.name.startsWith('singRIGHT')))
 			{
 				holdTimer += elapsed;
 			}
