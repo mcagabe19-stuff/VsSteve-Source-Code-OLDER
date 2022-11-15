@@ -2035,7 +2035,7 @@ class PlayState extends MusicBeatState
 			}
 			daSection += 1;
 			daBeats += 1;
-		}}
+		}
 	
 
 		// trace(unspawnNotes.length);
