@@ -20,8 +20,8 @@ using StringTools;
 import sys.FileSystem;
 import sys.io.File;
 #elseif html5
-import js.html.FileSystem
-import js.html.File
+import js.html.FileSystem;
+import js.html.File;
 #end
 
 enum StorageType
