@@ -259,9 +259,6 @@ class PlayState extends MusicBeatState
 		openSubState(new VideoState("assets/videos/armorsteve.webm"));
                 #elseif ios
 		trace('ios platfrom detected no cutscene loading')
-                #elseif !desktop || !mobile || !web
-		trace('unsupported platfrom detected no cutscene loading')
-		#end
                 }
 
 		sicks = 0;
