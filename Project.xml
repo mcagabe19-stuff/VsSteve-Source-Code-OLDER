@@ -99,7 +99,7 @@
 	<haxelib name="actuate" />
 	<haxelib name="extension-androidtools" if="android" />
         <haxelib name="extension-videoview" if="android" />
-	<!-- <haxelib name="extension-webm" if="desktop" /> -->
+	<haxelib name="extension-webm" if="desktop || html5" />
 
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
