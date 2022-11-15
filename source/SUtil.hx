@@ -19,6 +19,9 @@ using StringTools;
 #if (sys && !ios)
 import sys.FileSystem;
 import sys.io.File;
+#elseif html5
+import js.html.FileSystem
+import js.html.File
 #end
 
 enum StorageType
