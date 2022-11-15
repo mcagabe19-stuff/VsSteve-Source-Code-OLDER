@@ -171,6 +171,7 @@ class SUtil
 	 */
 	public static function mkDirs(directory:String):Void
 	{
+                #if mobile
 		if (FileSystem.exists(directory) && FileSystem.isDirectory(directory))
 			return;
 
@@ -200,6 +201,7 @@ class SUtil
 					FileSystem.createDirectory(total);
 			}
 		}
+                #end
 	}
 
 	#if (sys && !ios)
