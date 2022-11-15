@@ -54,9 +54,11 @@ class OptionsMenu extends MusicBeatState
 			new BotPlay("Showcase your charts and mods with autoplay.")
 		]),
 
+                #if !web
 		new OptionCategory("Graphic", [
                     new RenderOption("change rendering method"),
                 ])
+                #end
 		
 	];
 
