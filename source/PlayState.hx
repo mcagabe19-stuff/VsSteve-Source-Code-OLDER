@@ -255,10 +255,13 @@ class PlayState extends MusicBeatState
                 if (SONG.song == 'suit up' && PauseSubState.nosuitdowncutscene == false) {
 		#if android
 		VideoView.playVideo(SUtil.getStorageDirectory() + 'cutscenes/armorsteve.webm');
-		#elseif desktop || web
+		#end
+		#if desktop || web
 		openSubState(new VideoState("assets/videos/armorsteve.webm"));
-                #elseif ios
-		trace('ios platfrom detected no cutscene loading')
+		#end
+                #if ios
+		trace('ios platfrom detected no cutscene loading');
+		#end
                 }
 
 		sicks = 0;
