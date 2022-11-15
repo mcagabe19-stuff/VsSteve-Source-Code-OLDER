@@ -2031,12 +2031,11 @@ class PlayState extends MusicBeatState
 					swagNote.x += FlxG.width / 2; // general offset
 				}
 				else
-				{
-				}
+				{}
 			}
 			daSection += 1;
 			daBeats += 1;
-		}
+		}}
 	
 
 		// trace(unspawnNotes.length);
