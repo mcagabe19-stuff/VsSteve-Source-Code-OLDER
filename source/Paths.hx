@@ -18,13 +18,16 @@ class Paths
 
 	static var currentLevel:String;
 
+        #if !web
         public static var currentTrackedAssets:Map<String, FlxGraphic> = [];
         public static var currentTrackedTextures:Map<String, Texture> = [];
 	public static var currentTrackedSounds:Map<String, Sound> = [];
 	public static var localTrackedAssets:Array<String> = [];
+        #end
 
 	public static function clearUnusedMemory()
 	{
+        #if !web
 		for (key in currentTrackedAssets.keys())
 		{
 			if (!localTrackedAssets.contains(key) && key != null)
@@ -69,10 +72,12 @@ class Paths
                 #if cpp
 		cpp.NativeGc.run(true);
 		#end
+        #end
 	}
 
 	public static function clearStoredMemory()
 	{
+         #if !web
 		@:privateAccess
 		for (key in FlxG.bitmap._cache.keys())
 		{
@@ -103,6 +108,7 @@ class Paths
 		}
 
 		localTrackedAssets = [];
+        #end
 	}
 
 	static public function setCurrentLevel(name:String)
@@ -224,6 +230,7 @@ class Paths
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
 	}
 
+        #if !web
         public static function returnGraphic(key:String, ?cache:Bool = true):FlxGraphic
 	{
 		var path:String = 'assets/$key.png';
@@ -283,4 +290,5 @@ class Paths
 		trace('$key sound is null');
 		return null;
 	}
+        #end
 }
