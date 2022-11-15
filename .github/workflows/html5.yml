@@ -22,6 +22,7 @@ jobs:
 
       - name: Install Haxelib
         run: |
+          sudo apt-get install g++-multilib gcc-multilib -qq
           haxelib setup ~/haxelib
           haxelib install hxcpp 4.2.1 > /dev/null
           haxelib install lime 7.9.0 --quiet
@@ -36,6 +37,10 @@ jobs:
           haxelib git linc_luajit https://github.com/sirox228/linc_luajit.git
           haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
+          haxelib git extension-webm https://github.com/KadeDev/extension-webm
+          haxelib run lime rebuild extension-webm linux
+          haxelib run lime rebuild extension-webm linux -64
+          haxelib run lime rebuild extension-webm html5
           haxelib set openfl 9.1.0
           haxelib set lime 7.9.0
 
