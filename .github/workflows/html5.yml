@@ -34,7 +34,7 @@ jobs:
           haxelib git faxe https://github.com/uhrobots/faxe.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git extension-webm https://github.com/KadeDev/extension-webm.git
-          haxelib run lime rebuild extension-webm linux
+          haxelib run lime rebuild extension-webm linux64
           haxelib set openfl 9.1.0
           haxelib set lime 7.9.0
           echo "${{github.run_id}}" > VERSION
