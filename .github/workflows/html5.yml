@@ -24,20 +24,20 @@ jobs:
         run: |
           sudo apt-get install g++-multilib gcc-multilib -qq
           haxelib setup ~/haxelib
-          haxelib install hxcpp 4.2.1 > /dev/null
+          haxelib install hxcpp > /dev/null
           haxelib install lime 7.9.0 --quiet
           haxelib install openfl 9.1.0 --quiet
-          haxelib install actuate 1.8.9 --quiet
-          haxelib --never install flixel 4.9.0 --quiet
-          haxelib install flixel-tools 1.4.4 --quiet
-          haxelib install flixel-ui 2.3.3 --quiet
-          haxelib install hscript 2.4.0 --quiet
-          haxelib install flixel-addons 2.10.0 --quiet
+          haxelib install actuate --quiet
+          haxelib --never install flixel --quiet
+          haxelib install flixel-tools --quiet
+          haxelib install flixel-ui --quiet
+          haxelib install hscript --quiet
+          haxelib install flixel-addons --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
           haxelib git linc_luajit https://github.com/sirox228/linc_luajit.git
           haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
-          haxelib git extension-webm https://github.com/KadeDev/extension-webm
+          haxelib git extension-webm https://github.com/mcagabe19/extension-webm.git
           haxelib run lime rebuild extension-webm linux
           haxelib run lime rebuild extension-webm linux -64
           haxelib run lime rebuild extension-webm html5
@@ -48,7 +48,7 @@ jobs:
         run: echo "${{github.run_id}}" > VERSION
 
       - name: Compile
-        run: haxelib run lime build html5 -Ddom -D no-compilation -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
+        run: haxelib run lime build html5 -D no-compilation -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish Artifact
         uses: actions/upload-artifact@main
