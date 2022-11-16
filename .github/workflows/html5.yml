@@ -11,10 +11,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        build: [release, debug]
-
     steps:
       - name: Checkout
         uses: actions/checkout@main
@@ -51,11 +47,20 @@ jobs:
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
 
-      - name: Compile
-        run: haxelib run lime build html5 -${{ matrix.build }} -D no-compilation -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
+      - name: Compile (Release)
+        run: haxelib run lime build html5 -release -D no-compilation -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
 
-      - name: Publish Artifact
+      - name: Compile (Debug)
+        run: haxelib run lime build html5 -debug -D no-compilation -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
+
+      - name: Publish Artifact (Release)
         uses: actions/upload-artifact@main
         with:
-          name: build-${{ matrix.build }}
-          path: export/${{ matrix.build }}/html5/bin
+          name: build-release
+          path: export/release/html5/bin
+
+      - name: Publish Artifact (Debug)
+        uses: actions/upload-artifact@main
+        with:
+          name: build-debug
+          path: export/debug/html5/bin
