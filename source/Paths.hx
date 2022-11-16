@@ -110,7 +110,7 @@ class Paths
 		currentLevel = name.toLowerCase();
 	}
 
-	public static function getPath(file:String, type:AssetType, library:Null<String>)
+	static function getPath(file:String, type:AssetType, library:Null<String>)
 	{
 		if (library != null)
 			return getLibraryPath(file, library);
@@ -133,18 +133,12 @@ class Paths
 	{
 		return if (library == "preload" || library == "default") getPreloadPath(file); else getLibraryPathForce(file, library);
 	}
-	
-        #if web
+
 	inline static function getLibraryPathForce(file:String, library:String)
 	{
-		return if (library == "shared") 'assets/shared/$file'; else 'assets/$library/$file';
+		return '$library:assets/$library/$file';
 	}
-        #else
-	inline static function getLibraryPathForce(file:String, library:String)
-	{
-	        return '$library:assets/$library/$file';
-	}
-        #end
+
 	inline static function getPreloadPath(file:String)
 	{
 		return 'assets/$file';
