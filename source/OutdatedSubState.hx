@@ -31,7 +31,7 @@ class OutdatedSubState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-                #if web var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.getPath("shared/images/" + "menuPNG" + ".png", AssetType("IMAGE"), null)); #else var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuPNG')); #end
+                 var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuPNG'));
 		bg.scale.x *= 1.55;
 		bg.scale.y *= 1.55;
 		bg.screenCenter();
