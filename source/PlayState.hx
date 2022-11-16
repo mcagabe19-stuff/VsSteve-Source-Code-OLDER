@@ -258,10 +258,6 @@ class PlayState extends MusicBeatState
 		#if android
 		VideoView.playVideo(SUtil.getStorageDirectory() + 'cutscenes/armorsteve.webm');
 		#end
-		#if desktop || web
-                PauseSubState.nosuitdowncutscene = true;
-		FlxG.switchState(new VideoState('assets/videos/armorsteve.webm', new PlayState()));
-		#end
                 #if ios
 		trace('ios platfrom detected no cutscene loading');
 		#end
