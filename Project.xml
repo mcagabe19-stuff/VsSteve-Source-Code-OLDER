@@ -51,13 +51,13 @@
 	
 	<section if="PRELOAD_ALL">
 		<library name="songs"    preload="true" />
-		<library name="shared"   preload="true" unless="web" />
+		<library name="shared"   preload="true" />
 		<library name="week6"   preload="true" unless="web" />
 	</section>
 	
 	<section if="NO_PRELOAD_ALL">
 		<library name="songs"    preload="false" />
-		<library name="shared"   preload="false" unless="web" />
+		<library name="shared"   preload="false"  />
 		<library name="week6"   preload="false" unless="web" />
 	</section>
 
@@ -65,7 +65,7 @@
 	
 	<assets path="assets/songs"    library="songs"    exclude="*.ogg" if="web"/>
 	<assets path="assets/songs"    library="songs"    exclude="*.mp3" unless="web"/>
-	<assets path="assets/shared"   library="shared"   exclude="*.ogg" unless="web"/>
+	<assets path="assets"   library="shared"   exclude="*.ogg" if="web"/>
 	<assets path="assets/shared"   library="shared"   exclude="*.mp3" unless="web"/>
 	<assets path="assets/week6"   library="week6"   exclude="*.ogg" unless="web"/>
 	<assets path="assets/week6"   library="week6"   exclude="*.mp3" unless="web"/>
