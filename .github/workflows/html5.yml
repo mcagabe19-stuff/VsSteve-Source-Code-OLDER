@@ -24,6 +24,7 @@ jobs:
         run: |
           sudo apt-get install g++-multilib gcc-multilib -qq
           haxelib setup ~/haxelib
+          haxelib install hxcpp > /dev/null
           haxelib install lime 7.9.0 --quiet
           haxelib install openfl 9.1.0 --quiet
           haxelib install actuate --quiet
