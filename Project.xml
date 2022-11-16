@@ -65,7 +65,7 @@
 	
 	<assets path="assets/songs"    library="songs"    exclude="*.ogg" if="web"/>
 	<assets path="assets/songs"    library="songs"    exclude="*.mp3" unless="web"/>
-	<assets path="assets"   library="shared"   exclude="*.ogg" if="web"/>
+	<assets path="assets/shared"   library="shared"   exclude="*.ogg" if="web"/>
 	<assets path="assets/shared"   library="shared"   exclude="*.mp3" unless="web"/>
 	<assets path="assets/week6"   library="week6"   exclude="*.ogg" unless="web"/>
 	<assets path="assets/week6"   library="week6"   exclude="*.mp3" unless="web"/>
