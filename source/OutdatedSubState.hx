@@ -14,8 +14,8 @@ class OutdatedSubState extends MusicBeatState
 {
 	public static var leftState:Bool = false;
 
-	public static var needVer:String = "IDFK LOL";
-	public static var currChanges:String = "dk";
+	public static var needVer:String = "yo mom";
+	public static var currChanges:String = "nothing";
 	
 	private var bgColors:Array<String> = [
 		'#314d7f',
@@ -28,13 +28,13 @@ class OutdatedSubState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-                #if web var bg:FlxSprite = new FlxSprite().loadGraphic(openfl.utils.Assets.exists('assets/shared/images/menuPNG.png')); #else var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuPNG', 'shared')); #end
+                var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuPNG', 'shared'));
 		bg.scale.x *= 1.55;
 		bg.scale.y *= 1.55;
 		bg.screenCenter();
 		add(bg);
 
-		#if web var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(openfl.utils.Assets.exists('assets/images/vssteveLogo.png')); #else var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(Paths.image('vssteveLogo')); #end
+	        var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(Paths.image('vssteveLogo'));
 		kadeLogo.scale.y = 0.3;
 		kadeLogo.scale.x = 0.3;
 		kadeLogo.x -= kadeLogo.frameHeight;
