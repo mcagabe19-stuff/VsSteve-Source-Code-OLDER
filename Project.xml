@@ -34,16 +34,16 @@
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
-	<set name="BUILD_DIR" value="export/debug" if="debug" />
+        <set name="BUILD_DIR" value="export/debug" if="debug" />
 	<set name="BUILD_DIR" value="export/release" unless="debug" />
 	<set name="BUILD_DIR" value="export/32bit" if="32bit" />
 
 	<classpath name="source" />
-	
-	<assets path="mobile" rename="assets/mobile" if="mobile" />
 
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3" unless="web"/>
+	<assets path="assets/week6" exclude="*.ogg" if="web"/>
+	<assets path="assets/week6" exclude="*.mp3" unless="web"/>
 	
 	<!-- <define name="PRELOAD_ALL" /> -->
 	<define name="PRELOAD_ALL" unless="web" />
@@ -52,21 +52,23 @@
 	<section if="PRELOAD_ALL">
 		<library name="songs"    preload="true" />
 		<library name="shared"   preload="true" />
-		<library name="week6"    preload="true" />
+		<library name="week6"   preload="true" />
 	</section>
 	
 	<section if="NO_PRELOAD_ALL">
 		<library name="songs"    preload="false" />
 		<library name="shared"   preload="false" />
-		<library name="week6"    preload="false" />
+		<library name="week6"   preload="false" />
 	</section>
+
+        <assets path="mobile" rename="assets/mobile" if="mobile" />
 	
 	<assets path="assets/songs"    library="songs"    exclude="*.ogg" if="web"/>
 	<assets path="assets/songs"    library="songs"    exclude="*.mp3" unless="web"/>
 	<assets path="assets/shared"   library="shared"   exclude="*.ogg" if="web"/>
 	<assets path="assets/shared"   library="shared"   exclude="*.mp3" unless="web"/>
-	<assets path="assets/week6"    library="week6"    exclude="*.ogg" if="web"/>
-	<assets path="assets/week6"    library="week6"    exclude="*.mp3" unless="web"/>
+	<assets path="assets/week6"   library="week6"   exclude="*.ogg" if="web"/>
+	<assets path="assets/week6"   library="week6"   exclude="*.mp3" unless="web"/>
 	
 	<assets path='example_mods' rename='mods' embed='false'/>
 	<!-- <assets path='LICENSE' rename='LICENSE.txt' /> -->
@@ -176,7 +178,6 @@
 	<icon path="art/icon256.png" size='256'/>
 	<icon path="art/icon512.png" size='512'/>
 	<icon path="art/iconOG.png" />
-
 
 	<!-- <haxedef name="SKIP_TO_PLAYSTATE" if="debug" /> -->
 	<haxedef name="NG_LOGIN" if="newgrounds" />
