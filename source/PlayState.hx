@@ -2713,7 +2713,7 @@ class PlayState extends MusicBeatState
 			#if windows
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 			#end
-			FlxG.switchState(new ChartingState());
+			LoadingState.loadAndSwitchState(new ChartingState());
 			#if cpp
 			if (luaModchart != null)
 			{
