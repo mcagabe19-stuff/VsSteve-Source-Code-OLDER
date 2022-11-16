@@ -9,6 +9,9 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
+#if web
+import openfl.utils.AssetType;
+#end
 
 class OutdatedSubState extends MusicBeatState
 {
@@ -28,7 +31,7 @@ class OutdatedSubState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-                #if web var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.getPath("shared/images/" + "menuPNG" + ".png","IMAGE",null)); #else var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuPNG')); #end
+                #if web var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.getPath("shared/images/" + "menuPNG" + ".png", "IMAGE", null)); #else var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuPNG')); #end
 		bg.scale.x *= 1.55;
 		bg.scale.y *= 1.55;
 		bg.screenCenter();
