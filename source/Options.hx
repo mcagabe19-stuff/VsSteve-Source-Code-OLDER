@@ -73,7 +73,6 @@ class Option
 }
 
 
-#if !web
 class RenderOption extends Option
 {
 	private var rstr:String = "";
@@ -113,7 +112,6 @@ class RenderOption extends Option
 		return "render: " + rstr;
 	}
 }
-#end
 
 
 class DFJKOption extends Option
