@@ -1,4 +1,4 @@
-package;
+package openfl.display;
 
 import openfl.system.System;
 import flixel.math.FlxMath;
@@ -22,7 +22,7 @@ import openfl.Lib;
 @:fileXml('tags="haxe,release"')
 @:noDebug
 #end
-class FpsDisplay extends TextField
+class FPS extends TextField
 {
 	/**
 		The current frame rate, expressed using frames-per-second
@@ -85,9 +85,6 @@ class FpsDisplay extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-            if (fuckFps)
-			    text = "FPS: -" + (currentFPS * 10000) +  " RVhQVU5HRUQgV0lMTCBUQUtFIE9WRVI= " + (currentFPS * 10000);
-            else
                 text = "FPS: " + currentFPS;
 				#if openfl
 				var memoryMegas:Float = 0;
