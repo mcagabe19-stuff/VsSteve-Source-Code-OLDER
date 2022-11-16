@@ -28,13 +28,13 @@ class OutdatedSubState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-                #if web var bg:FlxSprite = new FlxSprite().loadGraphic(openfl.utils.Assets.exists("assets/shared/images/menuPNG.png")); #else var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuPNG', 'shared')); #end
+                #if web var bg:FlxSprite = new FlxSprite().loadGraphic(openfl.utils.Assets.exists('assets/shared/images/menuPNG.png')); #else var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuPNG', 'shared')); #end
 		bg.scale.x *= 1.55;
 		bg.scale.y *= 1.55;
 		bg.screenCenter();
 		add(bg);
 
-		#if web var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(openfl.utils.Assets.exists("assets/images/vssteveLogo.png")); #else var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(Paths.image('vssteveLogo')); #end
+		#if web var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(openfl.utils.Assets.exists('assets/images/vssteveLogo.png')); #else var kadeLogo:FlxSprite = new FlxSprite(FlxG.width, 0).loadGraphic(Paths.image('vssteveLogo')); #end
 		kadeLogo.scale.y = 0.3;
 		kadeLogo.scale.x = 0.3;
 		kadeLogo.x -= kadeLogo.frameHeight;
