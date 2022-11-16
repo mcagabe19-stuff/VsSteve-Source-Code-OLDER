@@ -137,12 +137,9 @@ class Paths
         #if web
 	inline static function getLibraryPathForce(file:String, library:String)
 	{
-		if (library == "shared") {
-		return 'assets/shared/$file'; }
-		if (library == "week6") {
-		return 'assets/week6/$file'; }
-		if (library == "songs") {
-		return 'assets/songs/$file'; }
+		return if (library == "shared") 'assets/shared/$file'; 
+		return if (library == "week6") 'assets/week6/$file'; 
+		return if (library == "songs")  'assets/songs/$file';
 	}
         #else
 	inline static function getLibraryPathForce(file:String, library:String)
