@@ -52,7 +52,7 @@
 	<define name="PRELOAD_ALL" unless="web" />
 	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>
 	<define name="mobileC" if="mobile || web" />
-	<define name="mobileCweb" if="web" unless="mobile" />
+	<define name="mobileCweb" if="web" unless="mobile || desktop || flash" />
 	
 	<section if="PRELOAD_ALL">
 		<library name="songs"    preload="true" />
