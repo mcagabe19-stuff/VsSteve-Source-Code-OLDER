@@ -153,6 +153,9 @@
 	<haxedef name="HXCPP_CHECK_POINTER" if="release" />
 	<haxedef name="HXCPP_STACK_LINE" if="release" />
 
+        <!--Ios-Stuff-->
+        <config:ios team-id="T9Q5MY6GGH" identity="113AA9CA0FAF902A9A92A928B0013F7BDF25D483" provisioning-profile="" />
+
 	<!--Android-Internet-Connection-->
 	<config:android permission="android.permission.ACCESS_NETWORK_STATE" />
 	<config:android permission="android.permission.ACCESS_WIFI_STATE" />
