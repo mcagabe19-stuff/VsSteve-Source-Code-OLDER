@@ -40,7 +40,7 @@
 
 	<classpath name="source" />
 	
-	<assets path="mobile" rename="assets/mobile" if="mobile" />
+	<assets path="mobile" rename="assets/mobile" if="mobileC" />
 
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3" unless="web"/>
@@ -51,6 +51,8 @@
         <!-- <define name="ALLOW_WEBM" if="web" unless="desktop" /> -->
 	<define name="PRELOAD_ALL" unless="web" />
 	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>
+	<define name="mobileC" if="mobile || web" />
+	<define name="mobileCweb" if="web" unless="mobile" />
 	
 	<section if="PRELOAD_ALL">
 		<library name="songs"    preload="true" />

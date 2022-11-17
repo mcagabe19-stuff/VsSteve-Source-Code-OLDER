@@ -45,10 +45,10 @@ class OutdatedSubState extends MusicBeatState
 		kadeLogo.alpha = 0.8;
 		add(kadeLogo);
 
-		#if mobile
+		#if mobileC
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
 			"DISCLAIMER!"
-			+ "\n\nIf you're a Content Creator, then you should maybe skip Revenge since its Copyrighted!\nSoo, if monetization is something for you, then you should skip Revenge out...\n\nAlso, dialog was temporarily disabled because we had no idea\nof how to add it properly lmaoo\n\nRemember that this is a DEMO, so dont expect much from the mod.\n\nTouch your screen to proceed"
+			+ "\n\nIf you're a Content Creator, then you should maybe skip Revenge since its Copyrighted!\nSoo, if monetization is something for you, then you should skip Revenge out...\n\nAlso, dialog was temporarily disabled because we had no idea\nof how to add it properly lmaoo\n\nRemember that this is a DEMO, so dont expect much from the mod.\n\nPress Space or ESCAPE or ENTER or Touch your screen to proceed"
 
 			);
                 #else
@@ -95,6 +95,11 @@ class OutdatedSubState extends MusicBeatState
                 for (touch in FlxG.touches.list)
 		if (touch.justPressed) {
 	        leftState = true;
+                FlxG.switchState(new MainMenuState()); }
+                #end
+                #if mobileCweb
+                if (FlxG.mouse.pressed) {
+                leftState = true;
                 FlxG.switchState(new MainMenuState()); }
                 #else
 		if (controls.BACK || controls.ACCEPT)

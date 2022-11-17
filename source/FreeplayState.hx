@@ -146,7 +146,7 @@ class FreeplayState extends MusicBeatState
 		add(textBG);
 
                 #if PRELOAD_ALL
-		#if android
+		#if mobileC
 		var leText:String = "Press C to listen to the Song.";
 		var size:Int = 16;
 		#else
@@ -159,7 +159,7 @@ class FreeplayState extends MusicBeatState
 		add(text);
                 #end
 
-                #if android
+                #if mobileC
                 addVirtualPad(LEFT_FULL, A_B_C);
                 #end
 
@@ -202,26 +202,26 @@ class FreeplayState extends MusicBeatState
 
 		scoreText.text = "PERSONAL BEST:" + lerpScore;
 
-		if (#if android virtualPad.buttonUp.justPressed || #end controls.UP_P)
+		if (#if mobileC virtualPad.buttonUp.justPressed || #end controls.UP_P)
 		{
 			changeSelection(-1);
 		}
-		if (#if android virtualPad.buttonDown.justPressed || #end controls.DOWN_P)
+		if (#if mobileC virtualPad.buttonDown.justPressed || #end controls.DOWN_P)
 		{
 			changeSelection(1);
 		}
 
-		if (#if android virtualPad.buttonLeft.justPressed || #end controls.LEFT_P)
+		if (#if mobileC virtualPad.buttonLeft.justPressed || #end controls.LEFT_P)
 			changeDiff(-1);
-		if (#if android virtualPad.buttonRight.justPressed || #end controls.RIGHT_P)
+		if (#if mobileC virtualPad.buttonRight.justPressed || #end controls.RIGHT_P)
 			changeDiff(1);
 
-		if (#if android virtualPad.buttonB.justPressed || #end controls.BACK)
+		if (#if mobileC virtualPad.buttonB.justPressed || #end controls.BACK)
 		{
 			FlxG.switchState(new MainMenuState());
 		}
 
-		if (#if android virtualPad.buttonA.justPressed || #end FlxG.keys.justPressed.ENTER)
+		if (#if mobileC virtualPad.buttonA.justPressed || #end FlxG.keys.justPressed.ENTER)
 		{
 			destroyFreeplayVocals();
 

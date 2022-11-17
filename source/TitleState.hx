@@ -281,6 +281,10 @@ class TitleState extends MusicBeatState
 			}
 		}
 		#end
+        #if mobileCweb
+		if (FlxG.mouse.pressed) {
+		pressedEnter = true; }
+		#end
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 

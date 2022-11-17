@@ -52,7 +52,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		bf.playAnim('firstDeath');
 
-                #if android
+                #if mobileC
 		addVirtualPad(NONE, A_B);
                 addPadCamera();
 		#end
@@ -62,12 +62,12 @@ class GameOverSubstate extends MusicBeatSubstate
 	{
 		super.update(elapsed);
 
-		if (#if android virtualPad.buttonA.justPressed || #end controls.ACCEPT)
+		if (#if mobileC virtualPad.buttonA.justPressed || #end controls.ACCEPT)
 		{
 			endBullshit();
 		}
 
-		if (#if android virtualPad.buttonB.justPressed || #end controls.BACK)
+		if (#if mobileC virtualPad.buttonB.justPressed || #end controls.BACK)
 		{
 			FlxG.sound.music.stop();
 

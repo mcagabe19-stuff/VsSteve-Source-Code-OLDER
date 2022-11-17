@@ -1472,7 +1472,7 @@ class PlayState extends MusicBeatState
 	{
 		inCutscene = false;
 
-                #if android
+                #if mobileC
                 mobileControls.visible = true;
                 #end
 
@@ -3449,7 +3449,7 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
-                #if android
+                #if mobileC
                 mobileControls.visible = false;
                 removeMobileControls();
                 #end
