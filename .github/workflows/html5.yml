@@ -34,13 +34,7 @@ jobs:
           haxelib git hscript https://github.com/YoshiCrafter29/hscript-improved --quiet
           haxelib install flixel-addons --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/sirox228/linc_luajit.git
-          haxelib git hxvm-luajit https://github.com/nebulazorua/hxvm-luajit.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
-          haxelib git extension-webm https://github.com/mcagabe19/extension-webm.git
-          haxelib run lime rebuild extension-webm linux
-          haxelib run lime rebuild extension-webm linux -64
-          haxelib run lime rebuild extension-webm html5
           haxelib set openfl 9.1.0
           haxelib set lime 7.9.0
 
