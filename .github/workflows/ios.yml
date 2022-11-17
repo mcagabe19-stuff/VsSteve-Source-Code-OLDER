@@ -1,0 +1,60 @@
+# This is a basic workflow to help you get started with Actions
+
+name: IOS Build CI
+
+# Controls when the workflow will run
+on: [workflow_dispatch]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    name: Build
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Setup xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@main
+        with:
+          distribution: zulu
+          java-version: 12
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@master
+        with:
+          haxe-version: 4.2.5
+
+      - name: Install Haxelib
+        run: |
+          haxelib setup ~/haxelib
+          haxelib install lime 7.9.0 --quiet
+          haxelib git hxcpp https://github.com/mcagabe19/hxcpp-fastspeed > /dev/null
+          haxelib install openfl 9.1.0 --quiet
+          haxelib install actuate --quiet
+          haxelib --never install flixel --quiet
+          haxelib install flixel-ui --quiet
+          haxelib install hscript --quiet
+          haxelib install flixel-addons --quiet
+          haxelib git faxe https://github.com/uhrobots/faxe.git
+          haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
+          haxelib set openfl 9.1.0
+          haxelib set lime 7.9.0
+
+      - name: Create Version Tag
+        run: echo "${{github.run_id}}" > VERSION
+
+      - name: Compile
+        run: haxelib run lime build ios -D no-compilation -D luajit_static -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
+
+      - name: Publish Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: Build
+          path: 'export/release/ios/bin'
