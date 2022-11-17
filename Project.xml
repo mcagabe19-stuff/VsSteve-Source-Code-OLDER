@@ -48,7 +48,7 @@
 	<assets path="assets/week6" exclude="*.mp3" unless="web"/>
 	
 	<!-- <define name="PRELOAD_ALL" /> -->
-        <define name="ALLOW_WEBM" if="web" unless="desktop" />
+        <!-- <define name="ALLOW_WEBM" if="web" unless="desktop" /> -->
 	<define name="PRELOAD_ALL" unless="web" />
 	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>
 	
@@ -102,7 +102,7 @@
 	<haxelib name="actuate" />
 	<haxelib name="extension-androidtools" if="android" />
         <haxelib name="extension-videoview" if="android" />
-	<haxelib name="extension-webm" if="ALLOW_WEBM" />
+	<!-- <haxelib name="extension-webm" if="ALLOW_WEBM" /> -->
 
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
 
