@@ -234,11 +234,11 @@ class FreeplayState extends MusicBeatState
 			PlayState.storyDifficulty = curDifficulty;
 			PlayState.storyWeek = songs[curSelected].week;
 			trace('CUR WEEK' + PlayState.storyWeek);
-                        #if web
+                        /*#if web
                         if (SONG.song == 'suit up' && PauseSubState.nosuitdowncutscene == false)) {
                         PauseSubState.nosuitdowncutscene = true;
 		        FlxG.switchState(new VideoState('assets/videos/armorsteve.webm', new PlayState())); }
-		        #else
+		        #else*/
 			LoadingState.loadAndSwitchState(new PlayState());
                         #end
 		}
