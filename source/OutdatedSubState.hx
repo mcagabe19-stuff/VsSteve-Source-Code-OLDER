@@ -98,7 +98,7 @@ class OutdatedSubState extends MusicBeatState
                 FlxG.switchState(new MainMenuState()); }
                 #end
                 #if mobileCweb
-                if (FlxG.mouse.pressed) {
+                if (controls.BACK || controls.ACCEPT || FlxG.mouse.pressed) {
                 leftState = true;
                 FlxG.switchState(new MainMenuState()); }
                 #else
