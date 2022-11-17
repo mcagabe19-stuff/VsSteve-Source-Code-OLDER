@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: IOS Build CI
+name: iOS Build CI
 
 # Controls when the workflow will run
 on: [workflow_dispatch]
@@ -43,6 +43,7 @@ jobs:
           haxelib install hscript --quiet
           haxelib install flixel-addons --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
+          haxelib git linc_luajit https://github.com/sirox228/linc_luajit.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib set openfl 9.1.0
           haxelib set lime 7.9.0
