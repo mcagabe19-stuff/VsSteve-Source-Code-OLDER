@@ -31,7 +31,7 @@ jobs:
           haxelib --never install flixel --quiet
           haxelib install flixel-tools --quiet
           haxelib install flixel-ui --quiet
-          haxelib git hscript https://github.com/YoshiCrafter29/hscript-improved --quiet
+          haxelib install hscript --quiet
           haxelib install flixel-addons --quiet
           haxelib git faxe https://github.com/uhrobots/faxe.git
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
