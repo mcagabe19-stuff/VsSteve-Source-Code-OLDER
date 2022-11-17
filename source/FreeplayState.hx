@@ -240,7 +240,7 @@ class FreeplayState extends MusicBeatState
 		        FlxG.switchState(new VideoState('assets/videos/armorsteve.webm', new PlayState())); }
 		        #else*/
 			LoadingState.loadAndSwitchState(new PlayState());
-                        #end
+                        //#end
 		}
 
                 if(#if mobile virtualPad.buttonC.justPressed || #end FlxG.keys.justPressed.SPACE) {
