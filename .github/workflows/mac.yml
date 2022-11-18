@@ -5,7 +5,7 @@ on: [workflow_dispatch]
 jobs:
   build:
     name: MacOS64
-    runs-on: macos-11
+    runs-on: macos-${{ matrix.version }}
     strategy:
       matrix:
         build: [release, debug]
@@ -51,4 +51,4 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: build64-${{ matrix.version }}-${{ matrix.build }}
-          path: 'export/release/macos/bin'
+          path: 'export/${{ matrix.build }}/macos/bin'
