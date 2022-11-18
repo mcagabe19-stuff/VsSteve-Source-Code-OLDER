@@ -1326,7 +1326,7 @@ class PlayState extends MusicBeatState
 		if (loadRep)
 			replayTxt.cameras = [camHUD];
 
-                #if mobile
+                #if mobileC
                 addMobileControls();
                 #end
 
