@@ -203,26 +203,26 @@ class FreeplayState extends MusicBeatState
 
 		scoreText.text = "PERSONAL BEST:" + lerpScore;
 
-		if (#if mobileC virtualPad.buttonUp.justPressed || #end controls.UP_P)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonUp.justPressed || #end controls.UP_P)
 		{
 			changeSelection(-1);
 		}
-		if (#if mobileC virtualPad.buttonDown.justPressed || #end controls.DOWN_P)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonDown.justPressed || #end controls.DOWN_P)
 		{
 			changeSelection(1);
 		}
 
-		if (#if mobileC virtualPad.buttonLeft.justPressed || #end controls.LEFT_P)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonLeft.justPressed || #end controls.LEFT_P)
 			changeDiff(-1);
-		if (#if mobileC virtualPad.buttonRight.justPressed || #end controls.RIGHT_P)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonRight.justPressed || #end controls.RIGHT_P)
 			changeDiff(1);
 
-		if (#if mobileC virtualPad.buttonB.justPressed || #end controls.BACK)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonB.justPressed || #end controls.BACK)
 		{
 			FlxG.switchState(new MainMenuState());
 		}
 
-		if (#if mobileC virtualPad.buttonA.justPressed || #end FlxG.keys.justPressed.ENTER)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonA.justPressed || #end FlxG.keys.justPressed.ENTER)
 		{
 			destroyFreeplayVocals();
 
@@ -244,7 +244,7 @@ class FreeplayState extends MusicBeatState
                         //#end
 		}
 
-                if(#if mobile virtualPad.buttonC.justPressed || #end FlxG.keys.justPressed.SPACE) {
+                if(#if mobileC FlxG.save.data.mobileC && virtualPad.buttonC.justPressed || #end FlxG.keys.justPressed.SPACE) {
                 if(instPlaying != curSelected) {
                 #if PRELOAD_ALL
 		destroyFreeplayVocals();
