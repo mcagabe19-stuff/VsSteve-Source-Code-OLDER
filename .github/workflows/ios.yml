@@ -41,6 +41,7 @@ jobs:
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib set openfl 9.1.0
           haxelib set lime 7.9.0
+          mkdir ~/Library/MobileDevice/Provisioning\ Profiles/
           mv ./*.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 
       - name: Create Version Tag
