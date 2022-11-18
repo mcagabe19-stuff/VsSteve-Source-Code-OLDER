@@ -72,7 +72,8 @@ jobs:
         with:
           name: buildarmv7
           path: export/${{ matrix.build }}/android/bin/app/build/outputs/apk/debug/steveolderidk-${{ matrix.arch }}.apk
-    name: Build-64
+  build-64:
+    name: Build 64
     runs-on: ubuntu-22.04
     strategy:
       matrix:
