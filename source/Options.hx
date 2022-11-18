@@ -130,7 +130,7 @@ class MobileCOption extends Option
 
 	private override function updateDisplay():String
 	{
-		return "No Mobile Controls " + (!FlxG.save.data.mobileC ? "off" : "on");
+		return "Mobile Controls " + (!FlxG.save.data.mobileC ? "off" : "on");
 	}
 }
 
