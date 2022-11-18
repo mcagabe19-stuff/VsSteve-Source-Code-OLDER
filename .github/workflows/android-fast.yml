@@ -70,7 +70,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: buildarmv7
+          name: build-${{ matrix.arch }}-${{ matrix.build }}
           path: export/${{ matrix.build }}/android/bin/app/build/outputs/apk/debug/steveolderidk-${{ matrix.arch }}.apk
   build-64:
     name: Build 64
@@ -138,5 +138,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: buildarmv7
+          name: build-64-${{ matrix.build }}
           path: export/${{ matrix.build }}/android/bin/app/build/outputs/apk/debug/steveolderidk-64.apk
