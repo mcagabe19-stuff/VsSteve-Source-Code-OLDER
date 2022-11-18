@@ -1,7 +1,6 @@
 // this file is for modchart things, this is to declutter playstate.hx
 
 // Lua
-#if !web
 import flixel.tweens.FlxEase;
 import openfl.filters.ShaderFilter;
 import flixel.tweens.FlxTween;
@@ -793,4 +792,3 @@ class ModchartState
         return new ModchartState();
     }
 }
-#end
