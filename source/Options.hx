@@ -123,14 +123,14 @@ class MobileCOption extends Option
 
 	public override function press():Bool
 	{
-                FlxG.save.data.nomobileC = !FlxG.save.data.nomobileC;
+                FlxG.save.data.mobileC = !FlxG.save.data.mobileC;
 		display = updateDisplay();
 		return true;
 	}
 
 	private override function updateDisplay():String
 	{
-		return "No Mobile Controls " + (FlxG.save.data.nomobileC ? "off" : "on");
+		return "No Mobile Controls " + (!FlxG.save.data.mobileC ? "off" : "on");
 	}
 }
 
