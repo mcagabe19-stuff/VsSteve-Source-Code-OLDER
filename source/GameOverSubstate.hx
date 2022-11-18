@@ -63,12 +63,12 @@ class GameOverSubstate extends MusicBeatSubstate
 	{
 		super.update(elapsed);
 
-		if (#if mobileC virtualPad.buttonA.justPressed || #end controls.ACCEPT)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonA.justPressed || #end controls.ACCEPT)
 		{
 			endBullshit();
 		}
 
-		if (#if mobileC virtualPad.buttonB.justPressed || #end controls.BACK)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonB.justPressed || #end controls.BACK)
 		{
 			FlxG.sound.music.stop();
 
