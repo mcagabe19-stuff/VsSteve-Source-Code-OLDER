@@ -1327,7 +1327,7 @@ class PlayState extends MusicBeatState
 			replayTxt.cameras = [camHUD];
 
                 #if mobileC
-                if(FlxG.save.data.nomobileC == false) {
+                if(FlxG.save.data.mobileC) {
                 addMobileControls(); }
                 #end
 
@@ -1474,7 +1474,7 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 
                 #if mobileC
-                if(FlxG.save.data.nomobileC == false) {
+                if(FlxG.save.data.mobileC) {
                 mobileControls.visible = true; }
                 #end
 
@@ -3452,7 +3452,7 @@ class PlayState extends MusicBeatState
 	function endSong():Void
 	{
                 #if mobileC
-                if(FlxG.save.data.nomobileC == false) {
+                if(FlxG.save.data.mobileC) {
                 mobileControls.visible = false; }
                 removeMobileControls();
                 #end
