@@ -160,7 +160,7 @@ class FreeplayState extends MusicBeatState
                 #end
 
                 #if mobileC
-                if(FlxG.save.data.nomobileC == true) {
+                if(FlxG.save.data.nomobileC == false) {
                 addVirtualPad(LEFT_FULL, A_B_C); }
                 #end
 
