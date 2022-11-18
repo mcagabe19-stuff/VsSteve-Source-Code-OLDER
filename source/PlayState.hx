@@ -276,7 +276,7 @@ class PlayState extends MusicBeatState
 		#if desktop
 		executeModchart = FileSystem.exists(Paths.lua(PlayState.SONG.song.toLowerCase()  + "/modchart"));
 		#end
-		#if mobile || web
+		#if mobile //|| web
 		executeModchart = openfl.utils.Assets.exists("assets/data/" + PlayState.SONG.song.toLowerCase() + "/modchart.lua");
 		#end
 		#if !cpp
@@ -1464,8 +1464,10 @@ class PlayState extends MusicBeatState
 	var perfectMode:Bool = false;
 
 	var luaWiggles:Array<WiggleEffect> = [];
-
+	
+  #if Lua //|| Luaweb
 	public static var luaModchart:ModchartState = null;
+	#end
 
 	function startCountdown():Void
 	{
@@ -1478,12 +1480,14 @@ class PlayState extends MusicBeatState
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
-
+		
+    #if Lua //|| Luaweb
 		if (executeModchart)
 		{
 			luaModchart = ModchartState.createModchartState();
 			luaModchart.executeState('start',[PlayState.SONG.song]);
 		}
+		#end
 
 		talking = false;
 		startedCountdown = true;
@@ -2600,7 +2604,8 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.save.data.botplay && FlxG.keys.justPressed.ONE)
 			camHUD.visible = !camHUD.visible;
-
+			
+    #if Lua //|| Luaweb
 		if (executeModchart && luaModchart != null && songStarted)
 		{
 			luaModchart.setVar('songPos',Conductor.songPosition);
@@ -2655,6 +2660,7 @@ class PlayState extends MusicBeatState
 					playerStrums.members[i].visible = p2;
 			}
 		}
+		#end
 
 		// reverse iterate to remove oldest notes first and not invalidate the iteration
 		// stop iteration as soon as a note is not removed
@@ -2709,11 +2715,13 @@ class PlayState extends MusicBeatState
 			DiscordClient.changePresence("Chart Editor", null, null, true);
 			#end
 			LoadingState.loadAndSwitchState(new ChartingState());
+			#if Lua //|| Luaweb
 			if (luaModchart != null)
 			{
 				luaModchart.die();
 				luaModchart = null;
 			}
+			#end
 		}
 
 		// FlxG.watch.addQuick('VOL', vocals.amplitudeLeft);
@@ -2778,21 +2786,25 @@ class PlayState extends MusicBeatState
 		if (FlxG.keys.justPressed.EIGHT)
 		{
 			FlxG.switchState(new AnimationDebug(SONG.player2));
+			#if Lua //|| Luaweb
 			if (luaModchart != null)
 			{
 				luaModchart.die();
 				luaModchart = null;
 			}
+			#end
 		}
 
 		if (FlxG.keys.justPressed.ZERO)
 		{
 			FlxG.switchState(new AnimationDebug(SONG.player1));
+			#if Lua //|| Luaweb
 			if (luaModchart != null)
 			{
 				luaModchart.die();
 				luaModchart = null;
 			}
+			#end
 		}
 
 		#end
@@ -2849,21 +2861,27 @@ class PlayState extends MusicBeatState
 				}
 			}
 			
+			#if Lua //|| Luaweb
 			if (luaModchart != null)
 				luaModchart.setVar("mustHit",PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection);
+			#end
 
 			if (camFollow.x != dad.getMidpoint().x + 150 && !PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection)
 			{
 				var offsetX = 0;
 				var offsetY = 0;
+				#if Lua //|| Luaweb
 				if (luaModchart != null)
 				{
 					offsetX = luaModchart.getVar("followXOffset", "float");
 					offsetY = luaModchart.getVar("followYOffset", "float");
 				}
+				#end
 				camFollow.setPosition(dad.getMidpoint().x + 150 + offsetX, dad.getMidpoint().y - 100 + offsetY);
+				#if Lua //|| Luaweb
 				if (luaModchart != null)
 					luaModchart.executeState('playerTwoTurn', []);
+				#end
 				// camFollow.setPosition(lucky.getMidpoint().x - 120, lucky.getMidpoint().y + 210);
 
 				switch (dad.curCharacter)
@@ -2977,15 +2995,19 @@ class PlayState extends MusicBeatState
 			{
 				var offsetX = 0;
 				var offsetY = 0;
+				#if Lua //|| Luaweb
 				if (luaModchart != null)
 				{
 					offsetX = luaModchart.getVar("followXOffset", "float");
 					offsetY = luaModchart.getVar("followYOffset", "float");
 				}
+				#end
 				camFollow.setPosition(boyfriend.getMidpoint().x - 100 + offsetX, boyfriend.getMidpoint().y - 100 + offsetY);
-
+				
+        #if Lua //|| Luaweb
 				if (luaModchart != null)
 					luaModchart.executeState('playerOneTurn', []);
+				#end
 
 				switch (curStage)
 				{
@@ -3258,8 +3280,10 @@ class PlayState extends MusicBeatState
 										daSprite = duoDad;
 								}
 								
+						#if Lua //|| Luaweb
 						if (luaModchart != null)
 							luaModchart.executeState('playerTwoSing', [Math.abs(daNote.noteData), Conductor.songPosition]);
+						#end
 
 						dad.holdTimer = 0;
 	
@@ -3445,12 +3469,14 @@ class PlayState extends MusicBeatState
 
 		if (FlxG.save.data.fpsCap > 290)
 			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
-
+			
+    #if Lua //|| Luaweb
 		if (luaModchart != null)
 		{
 			luaModchart.die();
 			luaModchart = null;
 		}
+		#end
 
 		canPause = false;
 		FlxG.sound.music.volume = 0;
@@ -3484,12 +3510,14 @@ class PlayState extends MusicBeatState
 					transIn = FlxTransitionableState.defaultTransIn;
 					transOut = FlxTransitionableState.defaultTransOut;
 					FlxG.switchState(new StoryMenuState());
-
+					
+          #if Lua //|| Luaweb
 					if (luaModchart != null)
 					{
 						luaModchart.die();
 						luaModchart = null;
 					}
+					#end
 
 					// if ()
 					StoryMenuState.weekUnlocked[Std.int(Math.min(storyWeek + 1, StoryMenuState.weekUnlocked.length - 1))] = true;
@@ -3954,12 +3982,14 @@ class PlayState extends MusicBeatState
 					controls.UP_R,
 					controls.RIGHT_R
 				];
+				#if Lua //|| Luaweb
 				if (luaModchart != null){
 				if (controls.LEFT_P){luaModchart.executeState('keyPressed',["left"]);};
 				if (controls.DOWN_P){luaModchart.executeState('keyPressed',["down"]);};
 				if (controls.UP_P){luaModchart.executeState('keyPressed',["up"]);};
 				if (controls.RIGHT_P){luaModchart.executeState('keyPressed',["right"]);};
 				};
+				#end
 		 
 				// Prevent player input if botplay is on
 				if(FlxG.save.data.botplay)
@@ -4164,10 +4194,11 @@ class PlayState extends MusicBeatState
 				case 3:
 					boyfriend.playAnim('singRIGHTmiss', true);
 			}
-
+			
+      #if Lua //|| Luaweb
 			if (luaModchart != null)
 				luaModchart.executeState('playerOneMiss', [direction, Conductor.songPosition]);
-
+			#end
 
 			updateAccuracy();
 		}
@@ -4313,10 +4344,11 @@ class PlayState extends MusicBeatState
 						case 0:
 							boyfriend.playAnim('singLEFT', true);
 					}
-		
+					
+		      #if Lua //|| Luaweb
 					if (luaModchart != null)
 						luaModchart.executeState('playerOneSing', [note.noteData, Conductor.songPosition]);
-
+					#end
 
 					if(!loadRep && note.mustPress)
 						saveNotes.push(HelperFunctions.truncateFloat(note.strumTime, 2));
@@ -4435,7 +4467,8 @@ class PlayState extends MusicBeatState
 						});
 					}
 			}
-
+			
+    #if Lua //|| Luaweb
 		if (executeModchart && luaModchart != null)
 		{
 			luaModchart.setVar('curStep',curStep);
@@ -4472,12 +4505,14 @@ class PlayState extends MusicBeatState
 		{
 			notes.sort(FlxSort.byY, (FlxG.save.data.downscroll ? FlxSort.ASCENDING : FlxSort.DESCENDING));
 		}
-
+		
+    #if Lua //|| Luaweb
 		if (executeModchart && luaModchart != null)
 		{
 			luaModchart.setVar('curBeat',curBeat);
 			luaModchart.executeState('beatHit',[curBeat]);
 		}
+		#end
 
 		if (curSong == 'Tutorial' && dad.curCharacter == 'gf') {
 			if (curBeat % 2 == 1 && dad.animOffsets.exists('danceLeft'))
