@@ -15,10 +15,10 @@ import llua.Lua;
 import llua.State;
 import llua.LuaL;
 #else
-import fengari.Lualib
-import fengari.Lua
-import fengari.Lauxlib
-import fengari.State
+import fengari.Lualib;
+import fengari.Lua;
+import fengari.Lauxlib;
+import fengari.State;
 #end
 import flixel.FlxBasic;
 import flixel.FlxCamera;
@@ -314,8 +314,8 @@ class ModchartState
     function new()
     {
         		trace('opening a lua state (because we are cool :))');
-				lua = LuaL.newstate();
-				LuaL.openlibs(lua);
+				#if cpp lua = LuaL.newstate(); #else lua = Lauxlib.luaL_newstate(); #end
+				#if cpp LuaL.openlibs(lua); #else Lualib.luaL_openlibs(lua);
 				trace("Lua version: " + Lua.version());
 				trace("LuaJIT version: " + Lua.versionJIT());
 				Lua.init_callbacks(lua);
@@ -324,6 +324,9 @@ class ModchartState
 
                                 #if mobile
 				var result = LuaL.dostring(lua, openfl.utils.Assets.getText(Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart"))); // execute le file
+                                #end
+                                #if web
+                                var result = Lauxlib.luaL_dostring(lua, openfl.utils.Assets.getText(Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart"))); // execute le file
                                 #else
 				var result = LuaL.dofile(lua, Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart")); // execute le file
                                 #end
