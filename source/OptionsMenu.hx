@@ -45,6 +45,7 @@ class OptionsMenu extends MusicBeatState
 		]),
 		
 		new OptionCategory("Misc", [
+                        new MobileCOption("Disable Mobile Controls"),
 			new FPSOption("Toggle the FPS Counter"),
                         #if desktop
 			new ReplayOption("View replays"),
