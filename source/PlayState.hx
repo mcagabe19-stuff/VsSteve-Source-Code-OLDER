@@ -4474,6 +4474,7 @@ class PlayState extends MusicBeatState
 			luaModchart.setVar('curStep',curStep);
 			luaModchart.executeState('stepHit',[curStep]);
 		}
+		#end
 
 		if (dad.curCharacter == 'spooky' && curStep % 4 == 2)
 		{
