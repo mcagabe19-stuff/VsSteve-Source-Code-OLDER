@@ -171,7 +171,7 @@ class SUtil
 	 */
 	public static function mkDirs(directory:String):Void
 	{
-                #if mobile
+                #if android
 		if (FileSystem.exists(directory) && FileSystem.isDirectory(directory))
 			return;
 
