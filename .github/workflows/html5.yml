@@ -46,7 +46,7 @@ jobs:
         run: echo "${{github.run_id}}" > VERSION
 
       - name: Compile
-        run: haxelib run lime build html5 -${{ matrix.build }} -D no-compilation -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
+        run: haxelib run lime build html5 -${{ matrix.build }} -Ddom -D no-compilation -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish Artifact (Release)
         uses: actions/upload-artifact@main
