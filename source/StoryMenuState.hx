@@ -238,7 +238,7 @@ class StoryMenuState extends MusicBeatState
 		trace("Line 165");
 
                 #if mobileC
-                if(FlxG.save.data.nomobileC == false) {
+                if(FlxG.save.data.mobileC) {
                 addVirtualPad(LEFT_FULL, A_B); }
                 #end
 
