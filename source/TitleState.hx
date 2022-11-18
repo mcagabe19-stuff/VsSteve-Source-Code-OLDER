@@ -55,10 +55,12 @@ class TitleState extends MusicBeatState
 	  #if android
 	  FlxG.android.preventDefaultKeys = [BACK];
 	  #end
-	  
+
+	        #if !ios
 		#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end
+                #end
 		
 		#if windows
 		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
