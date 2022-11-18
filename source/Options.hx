@@ -124,10 +124,6 @@ class MobileCOption extends Option
 	public override function press():Bool
 	{
                 FlxG.save.data.nomobileC = !FlxG.save.data.nomobileC;
-                if (FlxG.save.data.nomobileC == true) {
-                removeVirtualPad(); }
-                if (FlxG.save.data.nomobileC == false) {
-                FlxG.switchState(new OptionsMenu()); }
 		display = updateDisplay();
 		return true;
 	}
