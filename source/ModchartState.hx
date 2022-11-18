@@ -9,10 +9,17 @@ import openfl.geom.Matrix;
 import openfl.display.BitmapData;
 import lime.app.Application;
 import flixel.FlxSprite;
+#if cpp
 import llua.Convert;
 import llua.Lua;
 import llua.State;
 import llua.LuaL;
+#else
+import fengari.Lualib
+import fengari.Lua
+import fengari.Lauxlib
+import fengari.State
+#end
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
