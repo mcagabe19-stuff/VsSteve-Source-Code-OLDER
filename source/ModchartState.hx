@@ -9,17 +9,18 @@ import openfl.geom.Matrix;
 import openfl.display.BitmapData;
 import lime.app.Application;
 import flixel.FlxSprite;
-#if cpp
+#if Lua
 import llua.Convert;
 import llua.Lua;
 import llua.State;
 import llua.LuaL;
-#else
+#end
+/*#if Luaweb
 import fengari.Lualib;
 import fengari.Lua;
 import fengari.Lauxlib;
 import fengari.State;
-#end
+#end*/
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -314,8 +315,8 @@ class ModchartState
     function new()
     {
         		trace('opening a lua state (because we are cool :))');
-				#if cpp lua = LuaL.newstate(); #else lua = Lauxlib.luaL_newstate(); #end
-				#if cpp LuaL.openlibs(lua); #else Lualib.luaL_openlibs(lua); #end
+				#if Lua lua = LuaL.newstate(); #end /*#if Luaweb lua = Lauxlib.luaL_newstate(); #end*/
+				#if Lua LuaL.openlibs(lua); #end /*#if Luaweb Lualib.luaL_openlibs(lua); #end*/
 				trace("Lua version: " + Lua.version());
 				trace("LuaJIT version: " + Lua.versionJIT());
 				Lua.init_callbacks(lua);
@@ -324,10 +325,11 @@ class ModchartState
 
                                 #if mobile
 				var result = LuaL.dostring(lua, openfl.utils.Assets.getText(Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart"))); // execute le file
-                                #end
-                                #if web
-                                var result = Lauxlib.luaL_dostring(lua, openfl.utils.Assets.getText(Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart"))); // execute le file
                                 #else
+                                //#end
+                                /*#if web
+                                var result = Lauxlib.luaL_dostring(lua, openfl.utils.Assets.getText(Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart"))); // execute le file
+                                #else*/
 				var result = LuaL.dofile(lua, Paths.lua(PlayState.SONG.song.toLowerCase() + "/modchart")); // execute le file
                                 #end
 
