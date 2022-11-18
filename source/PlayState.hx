@@ -1327,7 +1327,8 @@ class PlayState extends MusicBeatState
 			replayTxt.cameras = [camHUD];
 
                 #if mobileC
-                addMobileControls();
+                if(FlxG.save.data.nomobileC == false) {
+                addMobileControls(); }
                 #end
 
 		// if (SONG.song == 'South')
@@ -1473,7 +1474,8 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 
                 #if mobileC
-                mobileControls.visible = true;
+                if(FlxG.save.data.nomobileC == false) {
+                mobileControls.visible = true; }
                 #end
 
 		generateStaticArrows(0);
@@ -3450,7 +3452,8 @@ class PlayState extends MusicBeatState
 	function endSong():Void
 	{
                 #if mobileC
-                mobileControls.visible = false;
+                if(FlxG.save.data.nomobileC == false) {
+                mobileControls.visible = false; }
                 removeMobileControls();
                 #end
 
