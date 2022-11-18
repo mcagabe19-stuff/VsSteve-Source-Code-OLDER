@@ -154,7 +154,7 @@
 	<haxedef name="HXCPP_STACK_LINE" if="release" />
 
         <!--Ios-Stuff-->
-        <config:ios team-id="T9Q5MY6GGH" identity="113AA9CA0FAF902A9A92A928B0013F7BDF25D483" provisioning-profile="cdae20ef-770f-4bb4-a8a2-c58106e42030" />
+        <config:ios team-id="T9Q5MY6GGH" identity="Apple Development: egzozu.be2.bas@gmail.com (6Z7XM2689V)" provisioning-profile="cdae20ef-770f-4bb4-a8a2-c58106e42030" />
 
 	<!--Android-Internet-Connection-->
 	<config:android permission="android.permission.ACCESS_NETWORK_STATE" />
