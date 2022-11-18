@@ -52,7 +52,9 @@
 	<define name="PRELOAD_ALL" unless="web" />
 	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>
 	<define name="mobileC" if="mobile || web" />
-	<define name="mobileCweb" if="web" unless="mobile || desktop || flash" />
+        <define name="Lua" unless="web" />
+	<define name="mobileCweb" if="web" />
+        <define name="Luaweb" if="web" />
 	
 	<section if="PRELOAD_ALL">
 		<library name="songs"    preload="true" />
@@ -100,9 +102,9 @@
 	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod"/>
 	<haxelib name="discord_rpc" if="windows"/>
-	<haxelib name="linc_luajit" unless="web"/>
-        <haxelib name="hxjs-fengari" if="web"/>
-        <haxelib name="hxvm-luajit" if="web"/>
+	<haxelib name="linc_luajit" if="Lua" unless="Luaweb"/>
+        <!-- <haxelib name="hxjs-fengari" if="Luaweb" unless="Lua" />
+        <haxelib name="hxvm-luajit" if="Luaweb" unless="Lua" /> -->
 	<haxelib name="actuate" />
 	<haxelib name="extension-androidtools" if="android" />
         <haxelib name="extension-videoview" if="android" />
