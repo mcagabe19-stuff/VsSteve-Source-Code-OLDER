@@ -20,7 +20,6 @@ jobs:
           haxe-version: 4.2.5
       - name: Install Haxelib
         run: |
-          sudo apt-get install -qq -o=Dpkg::Use-Pty=0 g++-multilib gcc-multilib
           haxelib setup ~/haxelib
           haxelib install hxcpp > /dev/null
           haxelib install lime 7.9.0 --quiet
