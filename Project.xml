@@ -39,8 +39,6 @@
 	<set name="BUILD_DIR" value="export/32bit" if="32bit" />
 
 	<classpath name="source" />
-
-        <dependency name="Metal.framework" if="ios" />
 	
 	<assets path="mobile" rename="assets/mobile" if="mobile || html5" />
 
@@ -190,5 +188,7 @@
 
 	<!-- <haxedef name="SKIP_TO_PLAYSTATE" if="debug" /> -->
 	<haxedef name="NG_LOGIN" if="newgrounds" />
+
+        <dependency name="Metal.framework" if="ios" />
 	
 </project>
