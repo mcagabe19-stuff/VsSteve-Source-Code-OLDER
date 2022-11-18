@@ -108,7 +108,7 @@ class OptionsMenu extends MusicBeatState
 		FlxTween.tween(blackBorder,{y: FlxG.height - 18},2, {ease: FlxEase.elasticInOut});
 
                 #if mobileC
-                if(FlxG.save.data.nomobileC == false) {
+                if(FlxG.save.data.mobileC) {
 		addVirtualPad(LEFT_FULL, A_B_C); }
                 #end
 
