@@ -52,7 +52,7 @@
 	<define name="PRELOAD_ALL" unless="web" />
 	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>
 	<define name="mobileC" if="mobile || web" />
-        <define name="Lua" unless="web" />
+        <define name="Lua" unless="web || ios" />
 	<define name="mobileCweb" if="web" />
         <define name="Luaweb" if="web" />
 	
