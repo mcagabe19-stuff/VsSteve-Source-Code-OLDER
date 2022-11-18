@@ -48,7 +48,7 @@ jobs:
       - name: Compile
         run: haxelib run lime build html5 -${{ matrix.build }} -Ddom -D no-compilation -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
 
-      - name: Publish Artifact (Release)
+      - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
           name: build-${{ matrix.build }}
