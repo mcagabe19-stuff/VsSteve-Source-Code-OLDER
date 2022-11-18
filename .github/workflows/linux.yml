@@ -3,48 +3,7 @@ name: Linux Build CI
 on: [workflow_dispatch]
 
 jobs:
-  build32:
-    name: Ubuntu32
-    runs-on: ubuntu-${{ matrix.version }}
-    strategy:
-      matrix:
-        build: [release, debug]
-        version: [20.04, 22.04]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@main
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
-        with:
-          haxe-version: 4.2.5
-      - name: Install Haxelib
-        run: |
-          sudo apt-get install gcc-multilib g++-multilib -qq
-          haxelib setup ~/haxelib
-          haxelib install hxcpp > /dev/null
-          haxelib install lime 7.9.0 --quiet
-          haxelib install openfl 9.1.0 --quiet
-          haxelib install actuate --quiet
-          haxelib --never install flixel --quiet
-          haxelib install flixel-tools --quiet
-          haxelib install flixel-ui --quiet
-          haxelib install hscript --quiet
-          haxelib install flixel-addons --quiet
-          haxelib git faxe https://github.com/uhrobots/faxe.git
-          haxelib git linc_luajit https://github.com/sirox228/linc_luajit.git
-          haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
-          haxelib set openfl 9.1.0
-          haxelib set lime 7.9.0
-      - name: Create Version Tag
-        run: echo "${{github.run_id}}" > VERSION
-      - name: Compile
-        run: haxelib run lime build Project.xml linux -32 -${{ matrix.build }} -D NO_PRECOMPILED_HEADERS -D no-compilation -D luajit_static -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
-      - name: Publish Artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: build-${{ matrix.version }}-32-${{ matrix.build }}
-          path: 'export/${{ matrix.build }}/linux/bin'
-  build64:
+  build:
     name: Ubuntu64
     runs-on: ubuntu-${{ matrix.version }}
     strategy:
