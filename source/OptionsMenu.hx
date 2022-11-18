@@ -45,7 +45,9 @@ class OptionsMenu extends MusicBeatState
 		]),
 		
 		new OptionCategory("Misc", [
+                        #if mobileC
                         new MobileCOption("Disable Mobile Controls"),
+                        #end
 			new FPSOption("Toggle the FPS Counter"),
                         #if desktop
 			new ReplayOption("View replays"),
@@ -106,7 +108,8 @@ class OptionsMenu extends MusicBeatState
 		FlxTween.tween(blackBorder,{y: FlxG.height - 18},2, {ease: FlxEase.elasticInOut});
 
                 #if mobileC
-		addVirtualPad(LEFT_FULL, A_B_C);
+                if(FlxG.save.data.nomobileC == false) {
+		addVirtualPad(LEFT_FULL, A_B_C); }
                 #end
 
 		super.create();
