@@ -315,7 +315,7 @@ class ModchartState
     {
         		trace('opening a lua state (because we are cool :))');
 				#if cpp lua = LuaL.newstate(); #else lua = Lauxlib.luaL_newstate(); #end
-				#if cpp LuaL.openlibs(lua); #else Lualib.luaL_openlibs(lua);
+				#if cpp LuaL.openlibs(lua); #else Lualib.luaL_openlibs(lua); #end
 				trace("Lua version: " + Lua.version());
 				trace("LuaJIT version: " + Lua.versionJIT());
 				Lua.init_callbacks(lua);
