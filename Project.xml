@@ -100,7 +100,8 @@
 	<haxelib name="faxe" if='switch'/>
 	<haxelib name="polymod"/>
 	<haxelib name="discord_rpc" if="windows"/>
-	<haxelib name="linc_luajit" />
+	<haxelib name="linc_luajit" unless="web"/>
+        <haxelib name="hxjs-fengari" if="web"/>
         <haxelib name="hxvm-luajit" if="web"/>
 	<haxelib name="actuate" />
 	<haxelib name="extension-androidtools" if="android" />
