@@ -113,6 +113,31 @@ class RenderOption extends Option
 	}
 }
 
+class MobileCOption extends Option
+{
+	public function new(desc:String)
+	{
+		super();
+		description = desc;
+	}
+
+	public override function press():Bool
+	{
+                if (FlxG.save.data.nomobileC == true) {
+                removeVirtualPad(); }
+                if (FlxG.save.data.nomobileC == false) {
+                FlxG.switchState(new OptionsMenu); }
+		FlxG.save.data.nomobileC = !FlxG.save.data.nomobileC;
+		display = updateDisplay();
+		return true;
+	}
+
+	private override function updateDisplay():String
+	{
+		return "No Mobile Controls " + (FlxG.save.data.nomobileC ? "off" : "on");
+	}
+}
+
 
 class DFJKOption extends Option
 {
