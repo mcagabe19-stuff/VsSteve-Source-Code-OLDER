@@ -114,11 +114,11 @@ class PauseSubState extends MusicBeatSubstate
 		var oldOffset:Float = 0;
 		var songPath = 'assets/data/' + PlayState.SONG.song.toLowerCase() + '/';
 
-		if (#if mobileC virtualPad.buttonUp.justPressed || #end upP)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonUp.justPressed || #end upP)
 		{
 			changeSelection(-1);
    
-		}else if (#if mobileC virtualPad.buttonDown.justPressed || #end downP)
+		}else if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonDown.justPressed || #end downP)
 		{
 			changeSelection(1);
 		}
@@ -179,7 +179,7 @@ class PauseSubState extends MusicBeatSubstate
 			}
 		#end
 
-		if (#if mobileC virtualPad.buttonA.justPressed || #end accepted)
+		if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonA.justPressed || #end accepted)
 		{
 			var daSelected:String = menuItems[curSelected];
 
