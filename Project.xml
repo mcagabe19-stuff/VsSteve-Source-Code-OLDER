@@ -39,6 +39,8 @@
 	<set name="BUILD_DIR" value="export/32bit" if="32bit" />
 
 	<classpath name="source" />
+
+        <dependency name="Metal.framework" if="ios" />
 	
 	<assets path="mobile" rename="assets/mobile" if="mobile || html5" />
 
