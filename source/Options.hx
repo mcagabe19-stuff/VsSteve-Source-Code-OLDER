@@ -127,7 +127,7 @@ class MobileCOption extends Option
                 if (FlxG.save.data.nomobileC == true) {
                 removeVirtualPad(); }
                 if (FlxG.save.data.nomobileC == false) {
-                FlxG.switchState(new OptionsMenu); }
+                FlxG.switchState(new OptionsMenu()); }
 		display = updateDisplay();
 		return true;
 	}
