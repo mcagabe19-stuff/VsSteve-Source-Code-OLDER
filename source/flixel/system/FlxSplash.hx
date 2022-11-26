@@ -1,4 +1,4 @@
-// stolen from vs dave and dave engine LMFAOOO
+//stolen from vs dave and dave engine LMFAOOO
 package flixel.system;
 
 import flixel.text.FlxText;
@@ -12,6 +12,7 @@ import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
@@ -27,6 +28,7 @@ class FlxSplash extends FlxState
 	public static var muted:Bool = #if html5 true #else false #end;
 
 	var animatedIntro:FlxSprite;
+	var animatedTex:FlxAtlasFrames;
 
 	var _cachedBgColor:FlxColor;
 	var _cachedTimestep:Bool;
@@ -45,7 +47,12 @@ class FlxSplash extends FlxState
 		_cachedAutoPause = FlxG.autoPause;
 		FlxG.autoPause = false;
 
-		animatedIntro = new FlxSprite(0,0).loadGraphic(Paths.image('funnisplash'));
+		animatedTex = Paths.getSplashSparrowAtlas('ui/flixel_intro', 'preload');
+
+		animatedIntro = new FlxSprite(0,0);
+		animatedIntro.frames = animatedTex;
+		animatedIntro.animation.addByPrefix('intro', 'intro', 24);
+		animatedIntro.animation.play('intro');
 		animatedIntro.updateHitbox();
 		animatedIntro.antialiasing = false;
 		animatedIntro.screenCenter();
@@ -61,12 +68,37 @@ class FlxSplash extends FlxState
 		#if FLX_SOUND_SYSTEM
 		if (!muted)
 		{
-			FlxG.sound.load(Paths.sound("funnisplash", 'preload')).play();
+			FlxG.sound.load(Paths.sound("flixel", 'preload')).play();
 		}
 		#end
+		if (FlxG.save.data.hasSeenSplash != null && FlxG.save.data.hasSeenSplash)
+		{
+			skipScreen = new FlxText(0, FlxG.height, 0, 'Press Enter To Skip', 16);
+			skipScreen.setFormat("Comic Sans MS Bold", 18, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			skipScreen.borderSize = 1.5;
+			skipScreen.antialiasing = true;
+			skipScreen.scrollFactor.set();
+			skipScreen.alpha = 0;
+			skipScreen.y -= skipScreen.textField.textHeight;
+			add(skipScreen);
+
+			FlxTween.tween(skipScreen, {alpha: 1}, 1);
+		}
 	}
 	override public function update(elapsed:Float)
 	{
+		#if mobile
+		var justTouched:Bool = false;
+
+		for (touch in FlxG.touches.list)
+			if (touch.justPressed)
+				justTouched = true;
+		#end
+
+		if (FlxG.save.data.hasSeenSplash && (FlxG.keys.justPressed.ENTER #if mobile || justTouched #end #if mobileCweb || FlxG.mouse.pressed #end))
+		{
+			onComplete(null);
+		}
 		super.update(elapsed);
 	}
 
