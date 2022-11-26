@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="flixel_intro.png">
+	<SubTexture name="intro0000" x="0" y="0" width="544" height="456"/>
+</TextureAtlas>
