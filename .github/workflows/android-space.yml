@@ -5,9 +5,10 @@ on: [workflow_dispatch]
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-${{ matrix.version }}
     strategy:
       matrix:
+        version: [20.04, 22.04]
         build: [release, debug]
         arch: [arm64, armv7, 32]
     steps:
@@ -71,13 +72,14 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: build-${{ matrix.arch }}-${{ matrix.build }}
+          name: build-ubuntu${{ matrix.version }}-${{ matrix.arch }}-${{ matrix.build }}
           path: export/${{ matrix.build }}/android/bin/app/build/outputs/apk/debug/steveolderidk-${{ matrix.arch }}.apk
-  build-64:
-    name: Build 64
-    runs-on: ubuntu-22.04
+  build-8664:
+    name: Build X86_64
+    runs-on: ubuntu-${{ matrix.version }}
     strategy:
       matrix:
+        version: [20.04, 22.04]
         build: [release, debug]
     steps:
       - name: Checkout
@@ -140,5 +142,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: build-64-${{ matrix.build }}
+          name: build-ubuntu${{ matrix.version }}-64-${{ matrix.build }}
           path: export/${{ matrix.build }}/android/bin/app/build/outputs/apk/debug/steveolderidk-64.apk
