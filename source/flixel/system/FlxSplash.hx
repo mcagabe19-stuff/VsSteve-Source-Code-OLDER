@@ -25,7 +25,7 @@ class FlxSplash extends FlxState
 	/**
 	 * @since 4.8.0
 	 */
-	public static var muted:Bool = #if html5 true #else false #end;
+	public static var muted:Bool = false
 
 	var animatedIntro:FlxSprite;
 	var animatedTex:FlxAtlasFrames;
