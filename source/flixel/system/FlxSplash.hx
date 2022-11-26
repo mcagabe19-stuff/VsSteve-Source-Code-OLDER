@@ -115,7 +115,7 @@ class FlxSplash extends FlxState
 
 	function timerCallback(Timer:FlxTimer):Void
 	{
-		//do nothing
+		FlxTween.tween(animatedIntro, {alpha: 1}, 0.0, {ease: FlxEase.quadOut, onComplete: onComplete});
 	}
 
 	function onComplete(Tween:FlxTween):Void
