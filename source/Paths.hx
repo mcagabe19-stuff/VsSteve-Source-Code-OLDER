@@ -129,6 +129,16 @@ class Paths
 		return getPreloadPath(file);
 	}
 
+        //eh y'all know stolen from dave
+        inline static public function splashImage(key:String, ?library:String, ?ext:String = 'png'):FlxGraphic
+		return returnGraphic(getPath('images/$key.$ext', IMAGE, library));
+
+	inline static public function splashFile(file:String, type:AssetType = TEXT, ?library:String):String
+		return getPath(file, type, library);
+
+	inline static public function getSplashSparrowAtlas(key:String, ?library:String):FlxAtlasFrames
+		return FlxAtlasFrames.fromSparrow(splashImage(key, library), splashFile('images/$key.xml', library));
+
 	static public function getLibraryPath(file:String, library = "preload")
 	{
 		return if (library == "preload" || library == "default") getPreloadPath(file); else getLibraryPathForce(file, library);
