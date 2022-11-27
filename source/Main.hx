@@ -79,9 +79,9 @@ class Main extends Sprite
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
 
-		#if !debug
+		/*#if !debug
 		initialState = TitleState;
-		#end
+		#end*/
 		
 		SUtil.check();
 
