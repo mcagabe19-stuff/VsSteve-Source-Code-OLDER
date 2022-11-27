@@ -84,7 +84,7 @@ class FlxSplash extends FlxState
 			skipScreen.y -= skipScreen.textField.textHeight;
 			add(skipScreen);
 
-			FlxTween.tween(skipScreen, {alpha: 1}, 1);
+			FlxTween.tween(skipScreen, {alpha: 1}, 0.0001);
 		}
 	}
 	override public function update(elapsed:Float)
@@ -117,7 +117,7 @@ class FlxSplash extends FlxState
 
 	function timerCallback(Timer:FlxTimer):Void
 	{
-		FlxTween.tween(animatedIntro, {alpha: 1}, 3.0, {ease: FlxEase.quadOut, onComplete: onComplete});
+		FlxTween.tween(animatedIntro, {alpha: 1}, 0.6, {ease: FlxEase.quadOut, onComplete: onComplete});
 	}
 
 	function onComplete(Tween:FlxTween):Void
