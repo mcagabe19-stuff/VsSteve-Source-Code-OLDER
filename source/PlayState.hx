@@ -1330,8 +1330,11 @@ class PlayState extends MusicBeatState
                 if(FlxG.save.data.mobileC) {
                 addMobileControls(); }
                 #end
+                #if (web || ios)
+                if(FlxG.save.data.mobileC) {
                 addVirtualPad(NONE, P);
-                addPadCamera();
+                addPadCamera(); }
+                #end
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -1479,7 +1482,10 @@ class PlayState extends MusicBeatState
                 if(FlxG.save.data.mobileC) {
                 mobileControls.visible = true; }
                 #end
-                virtualPad.visible = true;
+                #if (web || ios)
+                if(FlxG.save.data.mobileC) {
+                virtualPad.visible = true; }
+                #end
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
@@ -3458,7 +3464,10 @@ class PlayState extends MusicBeatState
                 mobileControls.visible = false; }
                 removeMobileControls();
                 #end
+                #if (web || ios)
+                if(FlxG.save.data.mobileC) {
 		virtualPad.visible = false;
+                #end
 			
                 #if desktop
 		if (!loadRep)
