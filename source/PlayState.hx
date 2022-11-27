@@ -3466,7 +3466,7 @@ class PlayState extends MusicBeatState
                 #end
                 #if (web || ios)
                 if(FlxG.save.data.mobileC) {
-		virtualPad.visible = false;
+		virtualPad.visible = false; }
                 #end
 			
                 #if desktop
