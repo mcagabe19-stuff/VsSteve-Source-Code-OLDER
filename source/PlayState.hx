@@ -1331,7 +1331,7 @@ class PlayState extends MusicBeatState
                 addMobileControls(); }
                 #end
                 addVirtualPad(NONE, P);
-                addVirtualPadCamera();
+                addPadCamera();
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
