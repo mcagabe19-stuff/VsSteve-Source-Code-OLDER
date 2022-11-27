@@ -73,8 +73,8 @@ class FlxSplash extends FlxState
 		#end
 		if (FlxG.save.data.hasSeenSplash != null && FlxG.save.data.hasSeenSplash)
 		{
-			skipScreen = new FlxText(0, FlxG.height, 0, 'Press Enter To Skip', 16);
-			skipScreen.setFormat("Comic Sans MS Bold", 18, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			#if desktop skipScreen = new FlxText(0, FlxG.height, 0, 'Press Enter To Skip', 16); #end #if mobileC || mobileCweb skipScreen = new FlxText(0, FlxG.height, 0, 'Press Enter Or Touch Your Screen To Skip', 16); #end
+			skipScreen.setFormat("Comic Sans MS", 18, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			skipScreen.borderSize = 1.5;
 			skipScreen.antialiasing = true;
 			skipScreen.scrollFactor.set();
@@ -115,7 +115,7 @@ class FlxSplash extends FlxState
 
 	function timerCallback(Timer:FlxTimer):Void
 	{
-		FlxTween.tween(animatedIntro, {alpha: 1}, 0.0, {ease: FlxEase.quadOut, onComplete: onComplete});
+		FlxTween.tween(animatedIntro, {alpha: 0}, 3.0, {ease: FlxEase.quadOut, onComplete: onComplete});
 	}
 
 	function onComplete(Tween:FlxTween):Void
