@@ -15,14 +15,13 @@ import openfl.events.Event;
 
 class Main extends Sprite
 {
-        /* disabled beacuse flixel 5.0.1
 	var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	var initialState:Class<FlxState> = TitleState; // The FlxState the game starts with.
-	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions. */
+	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	public static var framerate:Int = 60; // How many frames per second the game should run at.
-	/* var skipSplash:Bool = false; // Whether to skip the flixel splash screen that appears in release mode.
-	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets */
+	var skipSplash:Bool = false; // Whether to skip the flixel splash screen that appears in release mode.
+	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
 	public static var watermarks = true; // Whether to put Kade Engine liteartly anywhere
 
@@ -30,6 +29,7 @@ class Main extends Sprite
 
 	public static function main():Void
 	{
+
 		// quick checks 
 
 		Lib.current.addChild(new Main());
@@ -79,14 +79,13 @@ class Main extends Sprite
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
 
-		/*#if !debug
+		#if !debug
 		initialState = TitleState;
-		#end*/
+		#end
 		
 		SUtil.check();
 
-		/*game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);*/
-                game = new FlxGame(1280, 720, TitleState, -1, 60, 60, false, false);
+		game = new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
 
 		addChild(game);
 
