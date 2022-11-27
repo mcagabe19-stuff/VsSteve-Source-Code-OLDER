@@ -2702,7 +2702,7 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
-		if (#if android FlxG.android.justPressed.BACK || #end (FlxG.keys.justPressed.ENTER || virtualPad.buttonP.justpressed) && startedCountdown && canPause)
+		if (#if android FlxG.android.justPressed.BACK || #end FlxG.keys.justPressed.ENTER || virtualPad.buttonP.justpressed && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
