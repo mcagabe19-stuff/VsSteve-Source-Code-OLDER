@@ -7,9 +7,10 @@ on: [workflow_dispatch]
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-${{ matrix.version }}
     strategy:
       matrix:
+        version: [20.04, 22.04]
         build: [release, debug]
     steps:
       - name: Checkout
@@ -42,5 +43,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: build-${{ matrix.build }}
+          name: build-ubuntu${{ matrix.version }}-${{ matrix.build }}
           path: export/${{ matrix.build }}/html5/bin
