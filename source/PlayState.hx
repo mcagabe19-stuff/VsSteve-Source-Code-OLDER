@@ -1330,6 +1330,8 @@ class PlayState extends MusicBeatState
                 if(FlxG.save.data.mobileC) {
                 addMobileControls(); }
                 #end
+                addVirtualPad(NONE, P);
+                addVirtualPadCamera();
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -1477,6 +1479,7 @@ class PlayState extends MusicBeatState
                 if(FlxG.save.data.mobileC) {
                 mobileControls.visible = true; }
                 #end
+                virtualPad.visible = false;
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
