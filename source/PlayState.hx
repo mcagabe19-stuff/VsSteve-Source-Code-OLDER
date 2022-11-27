@@ -1479,7 +1479,7 @@ class PlayState extends MusicBeatState
                 if(FlxG.save.data.mobileC) {
                 mobileControls.visible = true; }
                 #end
-                virtualPad.visible = false;
+                virtualPad.visible = true;
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
@@ -3458,7 +3458,8 @@ class PlayState extends MusicBeatState
                 mobileControls.visible = false; }
                 removeMobileControls();
                 #end
-
+		virtualPad.visible = false;
+			
                 #if desktop
 		if (!loadRep)
 			rep.SaveReplay(saveNotes);
