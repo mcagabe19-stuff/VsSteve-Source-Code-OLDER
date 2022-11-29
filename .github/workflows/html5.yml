@@ -45,3 +45,8 @@ jobs:
         with:
           name: build-ubuntu${{ matrix.version }}-${{ matrix.build }}
           path: export/${{ matrix.build }}/html5/bin
+      - name: Publish Artifact (Only JS)
+        uses: actions/upload-artifact@main
+        with:
+          name: onlyjs-ubuntu${{ matrix.version }}-${{ matrix.build }}
+          path: 'export/${{ matrix.build }}/html5/bin/*.js*'
