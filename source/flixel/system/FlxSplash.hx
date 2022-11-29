@@ -76,7 +76,7 @@ class FlxSplash extends FlxState
 			#if desktop skipScreen = new FlxText(0, FlxG.height, 0, 'Press Enter To Skip', 16); #end
                         #if mobile skipScreen = new FlxText(0, FlxG.height, 0, 'Touch Your Screen To Skip', 16); #end
                         #if web skipScreen = new FlxText(0, FlxG.height, 0, 'Press Enter Or Touch Your Screen To Skip', 16); #end
-			skipScreen.setFormat("Comic Sans MS", 18, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			skipScreen.setFormat("vcr.ttf", 18, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			skipScreen.borderSize = 1.5;
 			skipScreen.antialiasing = true;
 			skipScreen.scrollFactor.set();
