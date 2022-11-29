@@ -47,7 +47,7 @@ class FlxSplash extends FlxState
 		_cachedAutoPause = FlxG.autoPause;
 		FlxG.autoPause = false;
 
-		animatedTex = Paths.getSplashSparrowAtlas('ui/flixel_intro', 'preload');
+		animatedTex = Paths.getSparrowAtlas('ui/flixel_intro');
 
 		animatedIntro = new FlxSprite(0,0);
 		animatedIntro.frames = animatedTex;
