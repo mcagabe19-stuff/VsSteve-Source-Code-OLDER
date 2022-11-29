@@ -17,7 +17,7 @@ import flixel.util.FlxTimer;
 import io.newgrounds.NG;
 #end
 import lime.app.Application;
-import lime.system.System;
+import lime.system.System as LimeSystem;
 
 #if windows
 import Discord.DiscordClient;
@@ -303,11 +303,11 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new OptionsMenu());
 
 			case 'quit':
-				System.exit(0);
+				LimeSystem.exit(1);
 
 			case 'credits':
 				trace("Soon");
-				System.exit(0);
+				LimeSystem.exit(1);
 		}
 	}
 
