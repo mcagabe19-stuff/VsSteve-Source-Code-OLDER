@@ -26,8 +26,7 @@ jobs:
           haxelib install openfl 9.1.0 --quiet
           haxelib install openfl-samples --quiet
           haxelib install actuate --quiet
-          haxelib --never install flixel 4.11.0 --quiet
-          haxelib install flixel-tools --quiet
+          haxelib --never git flixel https://github.com/mcagabe19/flixel-5.0.1.git
           haxelib install flixel-ui --quiet
           haxelib install hscript --quiet
           haxelib install flixel-addons --quiet
@@ -36,7 +35,6 @@ jobs:
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc.git
           haxelib set openfl 9.1.0
-          haxelib set flixel 4.11.0
           haxelib set lime 7.9.0
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
