@@ -99,7 +99,7 @@ jobs:
           haxelib git hxcpp https://github.com/mcagabe19/hxcpp-fastspeed > /dev/null
           haxelib install openfl 9.1.0 --quiet
           haxelib install actuate --quiet
-          haxelib --never git flixel https://github.com/mcagabe19/flixel-5.0.1.git
+          haxelib --never git flixel https://github.com/mcagabe19/flixel-4.11.0.git
           haxelib install flixel-ui --quiet
           haxelib install hscript --quiet
           haxelib install flixel-addons --quiet
