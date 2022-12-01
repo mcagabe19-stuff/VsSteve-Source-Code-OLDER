@@ -2702,7 +2702,25 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
-		if (FlxG.keys.justPressed.ENTER #if (web || ios) || if(FlxG.save.data.mobileC){virtualPad.buttonP.justPressed;} #end #if android || FlxG.android.justPressed.BACK #end && startedCountdown && canPause)
+                #if (mobileC || mobileCweb)
+                if(FlxG.save.data.mobileC) {
+		if (FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.BACKSPACE #if (web || ios) || virtualPad.buttonP.justPressed #end #if android || FlxG.android.justPressed.BACK #end && startedCountdown && canPause)
+		{
+			persistentUpdate = false;
+			persistentDraw = true;
+			paused = true;
+
+			// 1 / 1000 chance for Gitaroo Man easter egg
+			if (FlxG.random.bool(0.1))
+			{
+				trace('GITAROO MAN EASTER EGG');
+				FlxG.switchState(new GitarooPause());
+			}
+			else
+				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+		}}
+                else
+                if (FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.BACKSPACE #if android || FlxG.android.justPressed.BACK #end && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
@@ -2717,6 +2735,24 @@ class PlayState extends MusicBeatState
 			else
 				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 		}
+                #else
+                if (FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.BACKSPACE && startedCountdown && canPause)
+                {
+			persistentUpdate = false;
+			persistentDraw = true;
+			paused = true;
+
+			// 1 / 1000 chance for Gitaroo Man easter egg
+			if (FlxG.random.bool(0.1))
+			{
+				trace('GITAROO MAN EASTER EGG');
+				FlxG.switchState(new GitarooPause());
+			}
+			else
+				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+		}
+                #end
+                
 
 		if (FlxG.keys.justPressed.SEVEN)
 		{
