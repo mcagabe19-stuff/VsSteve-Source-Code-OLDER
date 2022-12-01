@@ -244,7 +244,7 @@ class PlayState extends MusicBeatState
 	private var floatvalue:Float = 0;
 	private var runvalue:Float = 0;
 
-        public static var pausebutton = '';
+        public static var pausebutton = FlxG.keys.justPressed.BACKSPACE;
 
 	override public function create()
 	{
