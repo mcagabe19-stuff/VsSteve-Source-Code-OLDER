@@ -71,11 +71,6 @@ class OptionsMenu extends MusicBeatState
 	var blackBorder:FlxSprite;
 	override function create()
 	{
-                if(FlxG.save.data.mobileC) {
-                PlayState.pausebutton = virtualPad.buttonP.justPressed; }
-                else
-                PlayState.pausebutton = FlxG.keys.justPressed.BACKSPACE;
-
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuBGBlue"));
 
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));

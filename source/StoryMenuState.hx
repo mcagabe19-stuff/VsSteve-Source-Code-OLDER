@@ -68,11 +68,6 @@ class StoryMenuState extends MusicBeatState
                 Paths.clearUnusedMemory();
                 Paths.clearStoredMemory();
 
-                if(FlxG.save.data.mobileC) {
-                PlayState.pausebutton = virtualPad.buttonP.justPressed; }
-                else
-                PlayState.pausebutton = FlxG.keys.justPressed.BACKSPACE;
-
 		#if windows
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Story Mode Menu", null);

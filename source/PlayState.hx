@@ -244,8 +244,6 @@ class PlayState extends MusicBeatState
 	private var floatvalue:Float = 0;
 	private var runvalue:Float = 0;
 
-        public static var pausebutton = FlxG.keys.justPressed.BACKSPACE;
-
 	override public function create()
 	{
 		instance = this;
@@ -2704,7 +2702,7 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
-		if (FlxG.keys.justPressed.ENTER #if (web || ios) || pausebutton #end #if android || FlxG.android.justPressed.BACK #end && startedCountdown && canPause)
+		if (FlxG.keys.justPressed.ENTER #if (web || ios) || if(FlxG.save.data.mobileC){virtualPad.buttonP.justPressed} #end #if android || FlxG.android.justPressed.BACK #end && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;

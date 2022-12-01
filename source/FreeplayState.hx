@@ -40,11 +40,6 @@ class FreeplayState extends MusicBeatState
                 Paths.clearUnusedMemory();
                 Paths.clearStoredMemory();
 
-                if(FlxG.save.data.mobileC) {
-                PlayState.pausebutton = virtualPad.buttonP.justPressed; }
-                else
-                PlayState.pausebutton = FlxG.keys.justPressed.BACKSPACE;
-
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
 
 		for (i in 0...initSonglist.length)
