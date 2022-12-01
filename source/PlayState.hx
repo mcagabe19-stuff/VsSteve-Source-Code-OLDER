@@ -2705,7 +2705,7 @@ class PlayState extends MusicBeatState
                 if(FlxG.save.data.mobileC) {
                 var pausebutton = virtualPad.buttonP.justPressed; }
                 else
-                var pausebutton = ''; }
+                var pausebutton = '';
 		if (FlxG.keys.justPressed.ENTER #if (web || ios) || pausebutton #end #if android || FlxG.android.justPressed.BACK #end && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
