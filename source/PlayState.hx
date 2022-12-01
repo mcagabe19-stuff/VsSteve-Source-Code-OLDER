@@ -244,6 +244,8 @@ class PlayState extends MusicBeatState
 	private var floatvalue:Float = 0;
 	private var runvalue:Float = 0;
 
+        var pausebutton = null;
+
 	override public function create()
 	{
 		instance = this;
