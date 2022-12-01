@@ -2704,8 +2704,8 @@ class PlayState extends MusicBeatState
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
                 if(FlxG.save.data.mobileC) {
                 var pausebutton = virtualPad.buttonP.justPressed; }
-                else
-                var pausebutton = '';
+                if(!FlxG.save.data.mobileC) {
+                var pausebutton = FlxG.keys.justPressed.BACKSPACE; }
 		if (FlxG.keys.justPressed.ENTER #if (web || ios) || pausebutton #end #if android || FlxG.android.justPressed.BACK #end && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
