@@ -2702,7 +2702,11 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,maxNPS,accuracy);
-		if (FlxG.keys.justPressed.ENTER #if (web || ios) || virtualPad.buttonP.justPressed #end #if android || FlxG.android.justPressed.BACK #end && startedCountdown && canPause)
+                if(FlxG.save.data.mobileC) {
+                pausebutton = virtualPad.buttonP.justPressed }
+                else
+                pausebutton = '' }
+		if (FlxG.keys.justPressed.ENTER #if (web || ios) || pausebutton #end #if android || FlxG.android.justPressed.BACK #end && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
