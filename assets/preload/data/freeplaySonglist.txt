@@ -1,3 +1,5 @@
+uoh demo:demosteve:0
+craft away demo:demosteve:0
 Fast Travel:stevehorse:4
 Revenge:gf-christmas:1
 Uoh:tuxsteveuoh:2

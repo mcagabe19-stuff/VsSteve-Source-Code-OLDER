@@ -4,6 +4,8 @@ bf-pixel
 bfminecraft
 tuxsteveuoh
 tuxsteve
+demosteve
+demosteve-angry
 steve-armor
 stevehorse
 alex
