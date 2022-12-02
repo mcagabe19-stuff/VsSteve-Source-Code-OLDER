@@ -898,7 +898,8 @@ class Character extends FlxSprite
 
 	override function update(elapsed:Float)
 	{
-		if not (curCharacter.startsWith('bf'))
+                if (curCharacter.startsWith('tuxsteve') || curCharacter.startsWith('stevefnm'))
+		/*if (curCharacter.startsWith('dad') || curCharacter.startsWith('gf'))*/
 		{
 			if (animation.curAnim.name.startsWith('singUP') || (animation.curAnim.name.startsWith('singDOWN')) || (animation.curAnim.name.startsWith('singLEFT')) || (animation.curAnim.name.startsWith('singRIGHT')))
 			{
