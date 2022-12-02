@@ -381,11 +381,11 @@ class Character extends FlxSprite
 			case 'tiago':
 				iconColor = 'FF800080';
 				frames = Paths.getSparrowAtlas('characters/Tiago');
-				animation.addByPrefix('idle', 'Tiago Idle', 24, false);
-				animation.addByPrefix('singUP', 'Tiago UP NOTE', 24, false);
-				animation.addByPrefix('singLEFT', 'Tiago LEFT NOTE', 24, false);
-				animation.addByPrefix('singRIGHT', 'Tiago RIGHT NOTE', 24, false);
-				animation.addByPrefix('singDOWN', 'Tiago DOWN NOTE', 24, false);
+				animation.addByPrefix('idle', 'Tiago Idle instance 1', 24, false);
+				animation.addByPrefix('singUP', 'Tiago UP NOTE instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'Tiago LEFT NOTE instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'Tiago RIGHT NOTE instance 1', 24, false);
+				animation.addByPrefix('singDOWN', 'Tiago DOWN NOTE instance 1', 24, false);
 			
 				addOffset('idle', -3, -3);
 				addOffset("singUP", -18, 14);
@@ -403,11 +403,11 @@ class Character extends FlxSprite
 			case 'tiagoswag':
 				iconColor = 'FF800080';
 				frames = Paths.getSparrowAtlas('characters/TiagoSwag');
-				animation.addByPrefix('idle', 'TiagoSwag Idle', 24, false);
-				animation.addByPrefix('singUP', 'TiagoSwag UP NOTE', 24, false);
-				animation.addByPrefix('singLEFT', 'TiagoSwag LEFT NOTE', 24, false);
-				animation.addByPrefix('singRIGHT', 'TiagoSwag RIGHT NOTE', 24, false);
-				animation.addByPrefix('singDOWN', 'TiagoSwag DOWN NOTE', 24, false);
+				animation.addByPrefix('idle', 'TiagoSwag Idle instance 1', 24, false);
+				animation.addByPrefix('singUP', 'TiagoSwag UP NOTE instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'TiagoSwag LEFT NOTE instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'TiagoSwag RIGHT NOTE instance 1', 24, false);
+				animation.addByPrefix('singDOWN', 'TiagoSwag DOWN NOTE instance 1', 24, false);
 		
 				addOffset('idle', -3, -3);
 				addOffset("singUP", -18, 14);
@@ -467,11 +467,11 @@ class Character extends FlxSprite
 			case 'tuxsteve':
 				iconColor = 'FF2B5480';
 				frames = Paths.getSparrowAtlas('characters/tuxsteve');
-				animation.addByPrefix('idle', 'tuxsteve Idle', 24, false);
-				animation.addByPrefix('singUP', 'tuxsteve up', 24, false);
-				animation.addByPrefix('singLEFT', 'tuxsteve left', 24, false);
-				animation.addByPrefix('singRIGHT', 'tuxsteve right', 24, false);
-				animation.addByPrefix('singDOWN', 'tuxsteve down', 24, false);
+				animation.addByPrefix('idle', 'tux steve Idle instance 1', 24, false);
+				animation.addByPrefix('singUP', 'tux steve UP NOTE instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'tux steve LEFT NOTE instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'tux steve RIGHT NOTE instance 1', 24, false);
+				animation.addByPrefix('singDOWN', 'tux steve DOWN NOTE instance 1', 24, false);
 
 				addOffset('idle', -250, -260);
 				addOffset("singUP", -247, -256);
@@ -830,11 +830,11 @@ class Character extends FlxSprite
 			case 'gabo':
 				iconColor = 'FF8FD8D4';
 				frames = Paths.getSparrowAtlas('characters/gabo');
-				animation.addByPrefix('idle', 'gabo Idle', 24, false);
-				animation.addByPrefix('singUP', 'gabo UP NOTE', 24, false);
-				animation.addByPrefix('singLEFT', 'gabo LEFT NOTE', 24, false);
-				animation.addByPrefix('singRIGHT', 'gabo RIGHT NOTE', 24, false);
-				animation.addByPrefix('singDOWN', 'gabo DOWN NOTE', 24, false);
+				animation.addByPrefix('idle', 'gabo Idle instance 1', 24, false);
+				animation.addByPrefix('singUP', 'gabo UP NOTE instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'gabo LEFT NOTE instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'gabo RIGHT NOTE instance 1', 24, false);
+				animation.addByPrefix('singDOWN', 'gabo DOWN NOTE instance 1', 24, false);
 
 				addOffset('idle');
 				addOffset("singUP", 5, 37);
