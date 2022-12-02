@@ -1515,11 +1515,18 @@ class PlayState extends MusicBeatState
 
 			var introAssets:Map<String, Array<String>> = new Map<String, Array<String>>();
 			introAssets.set('default', ['ready', "set", "go"]);
+                        if (SONG.song == 'uoh demo' || SONG.song == 'craft away demo') {
 			introAssets.set('school', [
+				'demoshit/pixelUI/ready-pixel',
+				'demoshit/pixelUI/set-pixel',
+				'demoshit/pixelUI/date-pixel'
+			]);}
+                        else
+                        introAssets.set('school', [
 				'weeb/pixelUI/ready-pixel',
 				'weeb/pixelUI/set-pixel',
 				'weeb/pixelUI/date-pixel'
-			]);
+                        ]);
 			introAssets.set('schoolEvil', [
 				'weeb/pixelUI/ready-pixel',
 				'weeb/pixelUI/set-pixel',
@@ -3772,8 +3779,15 @@ class PlayState extends MusicBeatState
 	
 			var pixelShitPart1:String = "";
 			var pixelShitPart2:String = '';
-	
+
+	                if (SONG.song == 'uoh demo' || SONG.song == 'craft away demo') {
 			if (curStage.startsWith('school'))
+			{
+				pixelShitPart1 = 'demoshit/pixelUI/';
+				pixelShitPart2 = '-pixel';
+			}}
+                        else
+                        if (curStage.startsWith('school'))
 			{
 				pixelShitPart1 = 'weeb/pixelUI/';
 				pixelShitPart2 = '-pixel';
