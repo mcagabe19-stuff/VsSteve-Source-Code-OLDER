@@ -422,6 +422,50 @@ class Character extends FlxSprite
 
 				antialiasing = false;
 
+                        case 'demosteve':
+				iconColor = 'FF2B5480';
+				frames = Paths.getSparrowAtlas('characters/demosteve');
+				animation.addByPrefix('idle', 'dumb Idle instance 1', 24, false);
+				animation.addByPrefix('singUP', 'dumb UP NOTE instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'dumb LEFT NOTE instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'dumb RIGHT NOTE instance 1', 24, false);
+				animation.addByPrefix('singDOWN', 'dumb DOWN NOTE instance 1', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", 5, 37);
+				addOffset("singRIGHT");
+				addOffset("singLEFT", 40);
+				addOffset("singDOWN", 14);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 6));
+				updateHitbox();
+
+				antialiasing = false;
+
+                        case 'demosteve-angry':
+				iconColor = 'FF2B5480';
+				frames = Paths.getSparrowAtlas('characters/demosteve');
+				animation.addByPrefix('idle', 'oh no Idle instance 1', 24, false);
+				animation.addByPrefix('singUP', 'oh no UP NOTE instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'oh no LEFT NOTE instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'oh no RIGHT NOTE instance 1', 24, false);
+				animation.addByPrefix('singDOWN', 'oh no DOWN NOTE instance 1', 24, false);
+
+				addOffset('idle');
+				addOffset("singUP", 5, 37);
+				addOffset("singRIGHT");
+				addOffset("singLEFT", 40);
+				addOffset("singDOWN", 14);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 6));
+				updateHitbox();
+
+				antialiasing = false;
+
 			case 'senpai-angry':
 				iconColor = 'FF264B73';
 				frames = Paths.getSparrowAtlas('characters/senpai');
