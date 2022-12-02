@@ -555,11 +555,11 @@ class Character extends FlxSprite
 			case 'stevematt':
 				iconColor = 'FF2B5480';
 				frames = Paths.getSparrowAtlas('characters/stevematt');
-				animation.addByPrefix('idle', 'steve Idle', 24, false);
-				animation.addByPrefix('singUP', 'steve UP NOTE', 24, false);
-				animation.addByPrefix('singLEFT', 'steve LEFT NOTE', 24, false);
-				animation.addByPrefix('singRIGHT', 'steve RIGHT NOTE', 24, false);
-				animation.addByPrefix('singDOWN', 'steve DOWN NOTE', 24, false);
+				animation.addByPrefix('idle', 'steve Idle instance 1', 24, false);
+				animation.addByPrefix('singUP', 'steve UP NOTE instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'steve LEFT NOTE instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'steve RIGHT NOTE instance 1', 24, false);
+				animation.addByPrefix('singDOWN', 'steve DOWN NOTE instance 1', 24, false);
 	
 				addOffset('idle');
 				addOffset("singUP", 5, 37);
