@@ -13,7 +13,7 @@ class BackgroundGirls extends FlxSprite
                 if (PlayState.SONG.song == 'uoh demo' || PlayState.SONG.song == 'craft away demo') {
 		frames = Paths.getSparrowAtlas('demoshit/bgFreaks'); }
                 else
-                frames = Paths.getSparrowAtlas('weeb/bgFreaks'); }
+                frames = Paths.getSparrowAtlas('weeb/bgFreaks');
 
 		animation.addByIndices('danceLeft', 'BG girls group', CoolUtil.numberArray(14), "", 24, false);
 		animation.addByIndices('danceRight', 'BG girls group', CoolUtil.numberArray(30, 15), "", 24, false);
