@@ -950,11 +950,11 @@ class PlayState extends MusicBeatState
 					tweenCamIn();
 				}
 
-			case 'senpai':
+			case 'demosteve':
 				dad.x += 150;
 				dad.y += 360;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
-			case 'senpai-angry':
+			case 'demosteve-angry':
 				dad.x += 150;
 				dad.y += 360;
 				camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
