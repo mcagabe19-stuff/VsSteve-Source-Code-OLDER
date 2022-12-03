@@ -3518,7 +3518,7 @@ class PlayState extends MusicBeatState
 		virtualPad.visible = false; }
                 #end
 			
-                #if desktop
+                /*#if desktop
 		if (!loadRep)
 			rep.SaveReplay(saveNotes);
 		else
@@ -3527,7 +3527,7 @@ class PlayState extends MusicBeatState
 			FlxG.save.data.scrollSpeed = 1;
 			FlxG.save.data.downscroll = false;
 		}
-                #end
+                #end*/
 
 		if (FlxG.save.data.fpsCap > 290)
 			(cast (Lib.current.getChildAt(0), Main)).setFPSCap(290);
