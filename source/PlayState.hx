@@ -959,11 +959,11 @@ class PlayState extends MusicBeatState
 			case 'demosteve':
 				dad.x += 150;
 				dad.y += 360;
-				//camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+				camPos.set(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y - 40) ;
 			case 'demosteve-angry':
 				dad.x += 150;
 				dad.y += 360;
-				//camPos.set(dad.getGraphicMidpoint().x + 300, dad.getGraphicMidpoint().y);
+				camPos.set(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y - 40);
 			case 'spirit':
 				dad.x -= 150;
 				dad.y += 100;
