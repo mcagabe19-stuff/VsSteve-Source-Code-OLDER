@@ -445,7 +445,7 @@ class PlayState extends MusicBeatState
 					bgGirls = new BackgroundGirls(-100, 190);
 					bgGirls.scrollFactor.set(0.9, 0.9);
 
-					if (SONG.song.toLowerCase() == 'craft away')
+					if (SONG.song.toLowerCase() == 'craft away' || SONG.song.toLowerCase() == 'craft away demo')
 						{
 							if(FlxG.save.data.distractions){
 								bgGirls.getScared();
