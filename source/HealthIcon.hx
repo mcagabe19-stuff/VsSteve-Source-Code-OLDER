@@ -44,8 +44,8 @@ class HealthIcon extends FlxSprite
 		animation.add('tiagoswag', [28, 29, 29], 0, false, isPlayer);
 		animation.add('gabo', [26, 27, 27], 0, false, isPlayer);
 		animation.add('jeb', [36, 37, 38], 0, false, isPlayer);
-                animation.add('demosteve', [20, 21, 22], 0, false, isPlayer);
-                animation.add('demosteve-angry', [20, 21, 22], 0, false, isPlayer);
+                animation.add('demosteve', [39, 39, 39], 0, false, isPlayer);
+                animation.add('demosteve-angry', [39, 39, 39], 0, false, isPlayer);
 		animation.play(char);
 
 		switch(char)
