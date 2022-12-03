@@ -831,11 +831,11 @@ class Character extends FlxSprite
 			case 'herobrine':
 				iconColor = 'FF112133 ';
 				frames = Paths.getSparrowAtlas('characters/herobrine');
-				animation.addByPrefix('idle', 'herobrine Idle', 24, false);
-				animation.addByPrefix('singUP', 'herobrine UP NOTE', 24, false);
-				animation.addByPrefix('singLEFT', 'herobrine LEFT NOTE', 24, false);
-				animation.addByPrefix('singRIGHT', 'herobrine RIGHT NOTE', 24, false);
-				animation.addByPrefix('singDOWN', 'herobrine DOWN NOTE', 24, false);
+				animation.addByPrefix('idle', 'herobrine Idle instance 1', 24, false);
+				animation.addByPrefix('singUP', 'herobrine UP NOTE instance 1', 24, false);
+				animation.addByPrefix('singLEFT', 'herobrine LEFT NOTE instance 1', 24, false);
+				animation.addByPrefix('singRIGHT', 'herobrine RIGHT NOTE instance 1', 24, false);
+				animation.addByPrefix('singDOWN', 'herobrine DOWN NOTE instance 1', 24, false);
 
 				addOffset('idle');
 				addOffset("singUP", 5, 37);
