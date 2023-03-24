@@ -18,27 +18,20 @@ jobs:
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: 4.2.5
+          haxe-version: 4.1.5
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
-          haxelib install hxcpp > /dev/null
           haxelib install lime 7.9.0 --quiet
           haxelib install openfl 9.1.0 --quiet
-          haxelib install actuate --quiet
+          haxelib install actuate 1.8.9 --quiet
           haxelib --never git flixel https://github.com/mcagabe19/flixel-4.11.0.git
-          haxelib install flixel-ui --quiet
-          haxelib install hscript --quiet
-          haxelib install flixel-addons --quiet
-          haxelib git faxe https://github.com/uhrobots/faxe.git
+          haxelib install flixel-ui 2.3.3 --quiet
+          haxelib install hscript 2.4.0 --quiet
+          haxelib install flixel-addons 2.11.0 --quiet
           haxelib git polymod https://github.com/mcagabe19/polymod-for-steve.git
-          haxelib set openfl 9.1.0
-          haxelib set lime 7.9.0
-          haxelib set flixel git
-      - name: Create Version Tag
-        run: echo "${{github.run_id}}" > VERSION
       - name: Compile
-        run: haxelib run lime build html5 -${{ matrix.build }} -D no-compilation -D macro-times -D analyzer-optimize --app-version="4.0.0-${{ github.run_id}}"
+        run: haxelib run lime build html5 -${{ matrix.build }} -D macro-times -D analyzer-optimize
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
