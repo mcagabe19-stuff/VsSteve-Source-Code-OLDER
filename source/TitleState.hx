@@ -56,11 +56,9 @@ class TitleState extends MusicBeatState
 	  FlxG.android.preventDefaultKeys = [BACK];
 	  #end
 
-	        #if !ios
-		#if polymod
+	        #if (!ios && polymod) 
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end
-                #end
 		
 		#if windows
 		if (!sys.FileSystem.exists(Sys.getCwd() + "/assets/replays"))
@@ -274,7 +272,7 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
-		#if mobile
+		#if mobileC
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.justPressed)
@@ -282,10 +280,6 @@ class TitleState extends MusicBeatState
 				pressedEnter = true;
 			}
 		}
-		#end
-        #if mobileCweb
-		if (FlxG.mouse.pressed) {
-		pressedEnter = true; }
 		#end
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
