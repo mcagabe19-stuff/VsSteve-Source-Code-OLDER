@@ -33,8 +33,6 @@ class FPS extends TextField
 	@:noCompletion private var currentTime:Float;
 	@:noCompletion private var times:Array<Float>;
 
-    public var fuckFps:Bool = false;
-
 	public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000)
 	{
 		super();
@@ -80,20 +78,20 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-                text = "FPS: " + currentFPS;
-				#if openfl
-				var memoryMegas:Float = 0;
-				memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
-				if (memoryMegas > 1000)
-				{
-					var memoryGB = (memoryMegas / 1000);
-					text += "\nMemory: " + FlxMath.roundDecimal(memoryGB, 2) + " GB";
-				}
-				else
-				{
-					text += "\nMemory: " + memoryMegas + " MB";
-				}
-				#end
+			text = "FPS: " + currentFPS;
+			#if openfl
+			var memoryMegas:Float = 0;
+			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
+			if (memoryMegas > 1000)
+			{
+				var memoryGB = (memoryMegas / 1000);
+				text += "\nMemory: " + FlxMath.roundDecimal(memoryGB, 2) + " GB";
+			}
+			else
+			{
+				text += "\nMemory: " + memoryMegas + " MB";
+			}
+			#end
 			#if (gl_stats && !disable_cffi && (!html5 || !canvas))
 			text += "\ntotalDC: " + Context3DStats.totalDrawCalls();
 			text += "\nstageDC: " + Context3DStats.contextDrawCalls(DrawCallContext.STAGE);
