@@ -124,8 +124,7 @@ class MobileCOption extends Option
 	public override function press():Bool
 	{
                 FlxG.save.data.mobileC = !FlxG.save.data.mobileC;
-                if (FlxG.save.data.mobileC) {
-                FlxG.switchState(new OptionsMenu()); }
+                FlxG.switchState(new OptionsMenu());
 		display = updateDisplay();
 		return true;
 	}
