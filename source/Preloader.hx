@@ -22,7 +22,7 @@ import flash.display.BlendMode;
 @:bitmap("assets/preload/images/stevetitle.png") class Bg extends BitmapData {}
 //@:bitmap("assets/preload/images/gfDanceTitleNoAnim.png") class AlexAndStev extends BitmapData {}
 @:bitmap("assets/preload/images/logoBumpin.png") class LogoShit extends BitmapData {}
-@:font("assets/fonts/vcr.ttf") class CustomFont extends Font {}
+@:font("assets/fonts/MinecraftRegular-Bmg3.otf") class CustomFont extends Font {}
  
 class Preloader extends FlxBasePreloader
 {
