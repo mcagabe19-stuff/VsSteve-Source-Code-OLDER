@@ -309,6 +309,7 @@ class StoryMenuState extends MusicBeatState
 
 			if (#if mobileC FlxG.save.data.mobileC && virtualPad.buttonA.justPressed || #end controls.ACCEPT)
 			{
+                                FreeplayState.destroyFreeplayVocals();
 				selectWeek();
 			}
 		}
