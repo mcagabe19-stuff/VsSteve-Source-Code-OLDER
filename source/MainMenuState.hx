@@ -303,11 +303,19 @@ class MainMenuState extends MusicBeatState
 				FlxG.switchState(new OptionsMenu());
 
 			case 'quit':
-				LimeSystem.exit(1);
+				#if !web
+				LimeSystem.exit(0);
+				#else
+				FlxG.camera.shake(0.05, 0.05);
+				#end
 
 			case 'credits':
 				trace("Soon");
-				LimeSystem.exit(1);
+				#if !web
+				LimeSystem.exit(0);
+				#else
+				FlxG.camera.shake(0.05, 0.05);
+				#end
 		}
 	}
 
