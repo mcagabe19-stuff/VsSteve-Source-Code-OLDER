@@ -306,15 +306,21 @@ class MainMenuState extends MusicBeatState
 				#if !web
 				LimeSystem.exit(0);
 				#else
-				FlxG.camera.shake(0.05, 0.05);
+				var msg = 'Web not have quit game option lmao';
+				//haxe.Log.trace(msg, null);
+				Lib.application.window.alert(msg, 'When');
+				FlxG.switchState(new MainMenuState());
 				#end
 
 			case 'credits':
-				trace("Soon");
 				#if !web
+                                trace("Soon");
 				LimeSystem.exit(0);
 				#else
-				FlxG.camera.shake(0.05, 0.05);
+				var msg = 'Soon';
+				//haxe.Log.trace(msg, null);
+				Lib.application.window.alert(msg, '');
+				FlxG.switchState(new MainMenuState());
 				#end
 		}
 	}
